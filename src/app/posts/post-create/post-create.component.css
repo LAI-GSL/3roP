@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Martian+Mono:wght@300&family=Noto+Color+Emoji&family=Phudu:wght@500&display=swap');
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150vh;
+  margin: 0;
+}
+
+.custom-card {
+  width: 80%;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px; 
+  box-sizing: border-box;
+}
+
+.custom-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; 
+}
+
+.custom-form mat-form-field,
+.custom-form mat-checkbox {
+  width: 100%;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.align-right {
+  margin-left: auto;
+}
+
+.title {
+  text-align: center;
+  color: black;
+  font-size: 20px; 
+  margin-bottom: 20px; 
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+.form-group {
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+}
+
+.mat-checkbox {
+  margin-right: 10px; 
+}

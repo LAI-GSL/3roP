@@ -1,0 +1,27 @@
+<div class="imagen-container">
+  <img src="https://code7.com/wp-content/uploads/2020/02/agendamento-de-consultas.jpg" alt="" class="imagen">
+  <div class="texto-centrado">
+      <p class="texto-principal">¡Bienvenido a nuestro servicio de citas en línea!</p>
+      <p class="subtitulo">Programa tus citas con profesionales en segundos, desde la comodidad de tu hogar.</p>
+      <a href="#" class="btn enlace-accion">Empecemos</a>
+  </div>
+</div>
+<div class="texto-servicios">
+  <p class="texto">Servicios que ofrecemos</p>
+  <p class="subtitulo-servicios">En nuestra misión de hacer que tu vida sea más fácil y saludable, te damos la bienvenida a una experiencia sin igual en la programación de citas con profesionales de confianza en diversas áreas. En un mundo en constante movimiento, hemos creado una solución ágil y segura para que puedas acceder a atención médica, servicios legales, asesoría financiera y más, desde la comodidad de tu hogar. Nuestra plataforma te permite programar tus citas con solo unos pocos clics, eliminando la molestia de esperar en colas telefónicas o en recepciones. Con un equipo de profesionales altamente calificados y una amplia gama de especialidades, estamos aquí para atender tus necesidades de manera eficiente y oportuna.</p>
+</div>
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+      <button mat-icon-button disabled></button>
+      {{node.name}}
+    </mat-tree-node>
+    <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+      <button mat-icon-button matTreeNodeToggle
+              [attr.aria-label]="'Toggle ' + node.name">
+        <mat-icon class="mat-icon-rtl-mirror">
+          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+        </mat-icon>
+      </button>
+      {{node.name}}
+    </mat-tree-node>
+  </mat-tree>

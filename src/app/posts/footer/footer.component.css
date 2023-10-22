@@ -1,0 +1,14 @@
+.footer-toolbar {
+    background-color: dimgray; 
+    color: #fff; 
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 1;
+  }
+  
+  .footer-content {
+    font-size: 15px; 
+    margin: 0 auto; 
+    max-width: 1200px; 
+  }
+  

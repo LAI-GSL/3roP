@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Martian+Mono:wght@300&family=Noto+Color+Emoji&family=Phudu:wght@500&display=swap');
+
+.contenedor{
+    display: flex;
+    align-items: center;
+}
+
+.contenedor img {
+    margin-right: 20px;
+}
+
+.texto{
+    font-size: 30px;
+    color: aliceblue;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}

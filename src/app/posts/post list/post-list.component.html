@@ -1,0 +1,21 @@
+<div class="contenedor">
+  <img src="https://freesvg.org/img/desenhocs.png" alt="">
+  <p class="texto">"Aquí puedes ver tus citas agendadas!"</p>
+</div>
+<mat-accordion multi="true" *ngIf="posts.length > 0">
+  <mat-expansion-panel *ngFor="let post of posts">
+    <mat-expansion-panel-header>
+      {{post.date | date}}
+  </mat-expansion-panel-header>
+  <p>Fecha: {{post.name}}</p>
+  <p>Hora: {{post.time}}</p>
+  <p>Teléfono: {{post.phoneNumber}}</p>
+  <p>Correo electrónico: {{post.email}}</p>
+  <p>Notas: {{post.notes}}</p>
+  <p>Confirmación de consentimiento: {{post.consentConfirmation ? 'Sí' : 'No'}}</p>
+    <mat-action-row>
+      <button mat-button color="warn" (click)="deletePostTS(post)">Eliminar</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion> 
+<p  class="info-text mat-body-1" *ngIf="posts.length <= 0">No se han agendado citas</p>
