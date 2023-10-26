@@ -1,19 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Acme&family=Martian+Mono:wght@300&family=Noto+Color+Emoji&family=Phudu:wght@500&display=swap');
+body {
+    font-family: 'Acme', sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
-.imagen {
-    width: 100%;
+.hero-section {
+    position: relative;
+    text-align: center;
+    background-image: url('https://code7.com/wp-content/uploads/2020/02/agendamento-de-consultas.jpg');
+    background-size: cover;
+    background-position: center center;
+    padding: 100px 0;
+    color: #fff;
+}
+
+.hero-image {
+    width: 1170px;
     height: auto;
     opacity: 0.5;
 }
-        
-.imagen-container {
-    max-width: 1500px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden; 
-}
 
-.texto-centrado {
+.hero-text {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -22,16 +29,26 @@
     color: white;
     padding: 20px;
     border-radius: 10px;
-    font-family: 'Martian Mono', monospace;
     width: 80%;
     max-width: 800px;
     text-align: center;
     line-height: 1.5;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.hero-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 18px;
+    margin-bottom: 30px;
 }
 
 .btn {
-    background-color:darkcyan;
+    background-color: darkcyan;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -47,47 +64,115 @@
     background-color: aliceblue;
 }
 
-.texto-principal {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.subtitulo {
-    font-size: 18px;
-    margin-bottom: 30px;
-}
-
-.enlace-accion {
-    text-decoration: none;
-    color: beige;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-
-.texto{
-    font-size: 30px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center; 
-    color: aliceblue;
-    font-family: 'Martian Mono', monospace;
-    font-weight: bold;
-}
-
-.texto-servicios{
-    text-align: center; 
-    margin-top: 20px; 
-    margin-bottom: 20px;
-}
-
-.subtitulo-servicios {
-    font-size: 18px;
-    line-height: 1.5;
-    margin-top: 10px; 
-    color: aliceblue;
-    font-family: 'Courier New', Courier, monospace;
+.services-section {
+    background-color: #f5f5f5;
+    padding: 60px 0;
     text-align: center;
-    padding: 20px 0;
 }
+
+.section-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.service-item {
+    margin: 0 20px;
+    max-width: 300px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.service-icon img {
+    max-width: 60px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.service-title {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.service-description {
+    font-size: 16px;
+    color: #777;
+}
+
+mat-tree {
+    width: 100%;
+    background-color: darkcyan; 
+    border-radius: 10px; 
+    padding: 10px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  }
+
+  mat-tree-node {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px; 
+    border-radius: 4px; 
+    margin: 5px 0; 
+    transition: background-color 0.3s ease; 
+  }
+
+  mat-tree-node button.mat-icon-button {
+    margin-right: 10px; 
+    padding: 4px;
+    min-width: 0;
+  }
+
+  mat-tree-node .mat-icon {
+    font-size: 24px; 
+    transition: transform 0.3s ease;
+  }
+
+  mat-tree-node.expanded .mat-icon {
+    transform: rotate(90deg);
+  }
+
+  mat-tree-node .mat-tree-node-content {
+    cursor: pointer;
+    flex-grow: 5;
+    font-weight: 500; 
+    font-size: 18px; 
+    color: #333; 
+  }
+
+  mat-tree-node.mat-tree-node-selected {
+    background-color: #4caf50; 
+    color: white;
+  }
+
+  mat-tree-node:hover {
+    background-color: #e0e0e0; 
+  }
+  

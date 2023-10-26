@@ -33,3 +33,42 @@
   max-width: 2000%;
   justify-content: space-between;
 }
+
+
+.header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 20px; }
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav {
+    display: flex;
+    gap: 20px; 
+    list-style-type: none; 
+    margin: 0;
+    padding: 0; 
+}
+
+.nav-item {
+    display: flex;
+}
+
+.nav-link {
+    color: inherit; 
+    text-decoration: none; 
+    cursor: pointer;
+}
+
+.login-container {
+    margin-left: auto; 
+}
