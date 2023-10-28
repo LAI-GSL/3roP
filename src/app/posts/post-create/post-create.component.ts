@@ -20,7 +20,7 @@ export class PostCreateComponent{
   if(form.invalid){
    return;
   }
-  this.postsService.addPost(form.value.id, form.value.name, form.value.date, form.value.time, form.value.phoneNumber, form.value.email, form.value.notes, form.value.consentConfirmation);
+  this.postsService.addPost(form.value.name, form.value.date, form.value.time, form.value.phoneNumber, form.value.email, form.value.notes, form.value.consentConfirmation);
      form.resetForm();
   }
 

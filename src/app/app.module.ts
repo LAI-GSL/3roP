@@ -32,7 +32,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { MatTabComponent } from './posts/mat-tab/mat-tab.component';
-
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -67,7 +67,8 @@ import { MatTabComponent } from './posts/mat-tab/mat-tab.component';
     MatProgressBarModule,
     MatTreeModule,
     TreeComponent,
-    MatRadioModule
+    MatRadioModule,
+    HttpClientModule
   ],
   providers: [PostService],
   bootstrap: [AppComponent],

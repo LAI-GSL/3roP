@@ -1,42 +1,66 @@
 import { Injectable } from "@angular/core";
 import { Post } from "./post.model";
 import { Subject } from "rxjs";
+//NUEVO
+import { HttpClient } from "@angular/common/http";
+import {map} from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
 export class PostService{
 
-    private posts: Post[]= []; //!Primera matriz
-    private postsUpdate = new Subject<Post[]>(); //!Actualizar
+    private posts: Post[] = []; //Primer matriz
+    private postsUpdate = new Subject<Post[]>();
 
+    constructor(private http: HttpClient){}
     getPosts(){
-        return [...this.posts];  //!Segunda matriz
-    } 
-    getPostsUpdateListener(){
+        this.http.get<{message: string, posts:any}>('http://localhost:3000/api/post')
+        .pipe(map((postData)=>{
+            return postData.posts.map((post:any) =>{
+                return{
+                    name: post.name,
+                    date: post.date,
+                    id: post._id,
+                    time: post.time,
+                    phoneNumber: post.phoneNumber,
+                    email: post.email,
+                    notes: post.notes,
+                    consentConfirmation: post.consentConfirmation
+
+                };
+            });
+        }))
+        .subscribe((publicacionTransformada) =>{
+            this.posts = publicacionTransformada;
+            this.postsUpdate.next([...this.posts]);
+        });
+    }
+    getPostsUpdateListener(){ //FUNCION DE OBSERVABLE
         return this.postsUpdate.asObservable();
     }
-
-   
-    addPost(id: string, name: string, date: Date, time: string, phoneNumber:string, email:string, notes: string, consentConfirmation:boolean){
-        const post: Post = {
-            id: id,
+    addPost(name: string, date: Date, time: string, phoneNumber: string, email:string, notes:string, consentConfirmation:boolean){
+        const post: Post = { 
             name: name,
             date: date,
-            time:time,
-            phoneNumber: phoneNumber,
+            time:time, 
+            phoneNumber:phoneNumber,
             email:email,
             notes:notes,
-            consentConfirmation:consentConfirmation}
+            consentConfirmation:consentConfirmation
+            }
+        this.http.post<{message: string}>('http://localhost:3000/api/post', post)
+        .subscribe((responseData) =>{
+            console.log(responseData.message);
             this.posts.push(post);
-            this.postsUpdate.next([...this.posts]); //?Traer la copia
+            this.postsUpdate.next([...this.posts]);
+        });    
         
     }
-
-    deletePost(post: Post) {
-        const index = this.posts.indexOf(post);
-             if (index !== -1) {
-             this.posts.splice(index, 1);
-             this.postsUpdate.next([...this.posts]); //?Borrar esa copia 
-            }
+    //AGREGUÉ ESTO
+      deletePost(postId: string){
+        this.http.delete("http://localhost:3000/api/post/" + postId)
+        .subscribe(()=>{
+            console.log('Eliminado')
+        });
       }
 }
 

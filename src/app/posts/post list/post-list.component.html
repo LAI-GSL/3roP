@@ -14,7 +14,7 @@
   <p>Notas: {{post.notes}}</p>
   <p>Confirmación de consentimiento: {{post.consentConfirmation ? 'Sí' : 'No'}}</p>
     <mat-action-row>
-      <button mat-button color="warn" (click)="deletePostTS(post)">Eliminar</button>
+      <button mat-button color="warn" (click)="onDelete(post.id)">Eliminar</button>
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion> 
