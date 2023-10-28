@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { ToolbarComponent } from './posts/tool-bar/tool-bar.component';
@@ -6,7 +6,7 @@ import { PostCreateComponent } from './posts/post-create/post-create.component';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatTabsModule } from '@angular/material/tabs';
+import { MatTabContent, MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -26,6 +26,13 @@ import { TableComponent } from './posts/table/table.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatTreeModule} from '@angular/material/tree'; 
 import { TreeComponent } from './posts/tree/tree.component';
+import { LoginComponent } from './posts/Login/login.component';
+import { RegisterComponent } from './posts/post-registro/post-registro.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+import { MatTabComponent } from './posts/mat-tab/mat-tab.component';
+
 
 @NgModule({
   declarations: [
@@ -34,10 +41,14 @@ import { TreeComponent } from './posts/tree/tree.component';
     PostCreateComponent,
     FooterComponent,
     PostListComponent,
-    TableComponent
+    TableComponent,
+    LoginComponent,
+    RegisterComponent,
+    MatTabComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatTabsModule,
@@ -55,9 +66,11 @@ import { TreeComponent } from './posts/tree/tree.component';
     MatTableModule,
     MatProgressBarModule,
     MatTreeModule,
-    TreeComponent
+    TreeComponent,
+    MatRadioModule
   ],
   providers: [PostService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

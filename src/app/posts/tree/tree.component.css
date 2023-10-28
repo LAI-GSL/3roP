@@ -9,22 +9,21 @@ body {
     text-align: center;
     background-image: url('https://code7.com/wp-content/uploads/2020/02/agendamento-de-consultas.jpg');
     background-size: cover;
-    background-position: center center;
-    padding: 100px 0;
+    padding: 90px 0;
     color: #fff;
 }
 
 .hero-image {
-    width: 1170px;
+    width: 1110px;
     height: auto;
-    opacity: 0.5;
+    opacity: 0;
 }
 
 .hero-text {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: 30%;
+    transform: translate(-50%);
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 20px;
@@ -45,23 +44,6 @@ body {
 .hero-subtitle {
     font-size: 18px;
     margin-bottom: 30px;
-}
-
-.btn {
-    background-color: darkcyan;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    cursor: pointer;
-    display: inline-block;
-}
-
-.btn:hover {
-    background-color: aliceblue;
 }
 
 .services-section {

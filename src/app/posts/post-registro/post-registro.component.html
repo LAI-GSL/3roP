@@ -1,0 +1,39 @@
+<div class="register-container">
+    <h2>Regístrate</h2>
+
+    <div class="register-input-group">
+      <label for="nameInput">Nombre</label>
+      <input id="nameInput" type="text" [(ngModel)]="name" class="register-form-field">
+    </div>
+  
+    <div class="register-input-group">
+      <label for="emailInput">Correo Electrónico</label>
+      <input id="emailInput" type="email" [(ngModel)]="email" class="register-form-field">
+    </div>
+
+    <div class="register-input-group">
+      <label for="passwordInput">Contraseña</label>
+      <input id="passwordInput" type="password" [(ngModel)]="password" class="register-form-field">
+    </div>
+
+    <div class="register-input-group">
+      <label for="confirmPasswordInput">Confirmar Contraseña</label>
+      <input id="confirmPasswordInput" type="password" [(ngModel)]="confirmPassword" class="register-form-field">
+    </div>
+
+    <div class="register-input-group" style="color: #333;">
+      <label>¿Qué deseas hacer?</label>
+      <mat-radio-group [(ngModel)]="userType">
+        <mat-radio-button value="professional" style="color: red;">Registrarme como profesional</mat-radio-button>
+        <mat-radio-button value="appointment">Agendar una cita</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    
+    <button id="register-btn" type="button" mat-button (click)="registerUser()">
+      Registrarse
+    </button>
+  
+    <p>¿Ya tienes una cuenta? <a class="clickable-link" (click)="onWantToLogin()">Iniciar sesión</a></p>
+
+  </div>
+  

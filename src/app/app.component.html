@@ -1,8 +1,16 @@
-<app-tool-bar></app-tool-bar>
+<app-tool-bar [showLogoutButton]="!showLoginRegister" *ngIf="showHeaderFooter"></app-tool-bar>
 <main>
   <body>
-        <app-tree></app-tree>
+    <div class="form-container">
+      <div class="login-form">
+          <app-login *ngIf="showLoginRegister && !showRegister" (wantToRegister)="showRegister = true"></app-login>
+      </div>
+      <div class="register-form">
+          <app-registro *ngIf="showLoginRegister && showRegister" (wantToLogin)="showRegister = false"></app-registro>
+      </div>
+    </div>
+    <app-tree *ngIf="showLoginRegister"></app-tree>
+    <app-mat-tab *ngIf="!showLoginRegister"></app-mat-tab>
   </body>
 </main>
-<app-footer></app-footer>
-
+<app-footer *ngIf="showHeaderFooter"></app-footer>

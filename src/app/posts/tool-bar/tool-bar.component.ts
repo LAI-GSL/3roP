@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, Input} from "@angular/core";
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-tool-bar',
@@ -6,4 +7,13 @@ import { Component } from "@angular/core";
     styleUrls: ['./tool-bar.component.css']
 })
 
-export class ToolbarComponent{}
+export class ToolbarComponent{
+
+    @Input() showLogoutButton = false;
+
+    constructor(private router: Router) {}
+
+    onLogout() {
+        this.router.navigate(['/principal']); 
+    }
+}

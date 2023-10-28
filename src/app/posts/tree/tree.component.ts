@@ -3,6 +3,8 @@ import {Component} from '@angular/core';
 import {MatTreeFlatDataSource, MatTreeFlattener, MatTreeModule} from '@angular/material/tree';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { LoginComponent } from '../Login/login.component';
+
 
 interface areaNode {
     name: string;

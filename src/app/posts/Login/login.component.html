@@ -1,0 +1,30 @@
+<div class="container">
+
+  <h2>Iniciar Sesión</h2>
+
+  <div class="input-group">
+    <label for="usuarioInput">Usuario</label>
+    <mat-form-field class="example-form-field">
+      <input id="usuarioInput" matInput type="text" [(ngModel)]="userValue">
+      <button *ngIf="userValue" matSuffix mat-icon-button aria-label="Clear" (click)="clearFields()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <div class="input-group">
+    <label for="contrasenaInput">Contraseña</label>
+    <mat-form-field class="example-form-field">
+      <input id="contrasenaInput" matInput type="password" [(ngModel)]="passwordValue">
+      <button *ngIf="passwordValue" matSuffix mat-icon-button aria-label="Clear" (click)="clearFields()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <button id="basic" type="button" mat-button (click)="validateAccess()">
+    Entrar
+  </button>
+  <p>¿No tienes una cuenta? <a class="clickable-link" (click)="onWantToRegister()">Regístrate</a></p>
+  <p>{{ message }}</p>
+
+</div>
