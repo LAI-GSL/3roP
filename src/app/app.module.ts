@@ -33,6 +33,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { MatTabComponent } from './posts/mat-tab/mat-tab.component';
 import {HttpClientModule} from '@angular/common/http';
+import { PostServiceUser } from './posts/users.service';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,7 @@ import {HttpClientModule} from '@angular/common/http';
     MatRadioModule,
     HttpClientModule
   ],
-  providers: [PostService],
+  providers: [PostService, PostServiceUser],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

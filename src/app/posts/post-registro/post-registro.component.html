@@ -1,39 +1,70 @@
 <div class="register-container">
     <h2>Regístrate</h2>
-
+<mat-card class="matcard">
+  <form (submit)="onAddUser(userForm)" #userForm = "ngForm" class="custom-form" >
+    <mat-form-field>
     <div class="register-input-group">
       <label for="nameInput">Nombre</label>
-      <input id="nameInput" type="text" [(ngModel)]="name" class="register-form-field">
+      <input 
+            matInput 
+            type="text"
+            id="name"
+            name="name" 
+            ngModel
+            required
+            placeholder="Nombre"
+            #title ="ngModel" class="register-form-field">
     </div>
-  
+  </mat-form-field>
+  <mat-form-field>
     <div class="register-input-group">
       <label for="emailInput">Correo Electrónico</label>
-      <input id="emailInput" type="email" [(ngModel)]="email" class="register-form-field">
+      <input 
+      matInput 
+      type="email"
+      id="email"
+      name="email" 
+      ngModel
+      required
+      placeholder="Email"
+      #title ="ngModel" class="register-form-field">
     </div>
-
+  </mat-form-field>
+  <mat-form-field>
     <div class="register-input-group">
       <label for="passwordInput">Contraseña</label>
-      <input id="passwordInput" type="password" [(ngModel)]="password" class="register-form-field">
+      <input 
+      matInput 
+      type="password"
+      id="password"
+      name="password" 
+      ngModel
+      required
+      placeholder="password"
+      #title ="ngModel" class="register-form-field">
     </div>
-
+  </mat-form-field>
+  <mat-form-field>
     <div class="register-input-group">
       <label for="confirmPasswordInput">Confirmar Contraseña</label>
-      <input id="confirmPasswordInput" type="password" [(ngModel)]="confirmPassword" class="register-form-field">
+      <input 
+      matInput 
+      type="password"
+      id="passwordC"
+      name="passwordC" 
+      ngModel
+      required
+      placeholder="passwordC"
+      #title ="ngModel" class="register-form-field">
     </div>
-
-    <div class="register-input-group" style="color: #333;">
-      <label>¿Qué deseas hacer?</label>
-      <mat-radio-group [(ngModel)]="userType">
-        <mat-radio-button value="professional" style="color: red;">Registrarme como profesional</mat-radio-button>
-        <mat-radio-button value="appointment">Agendar una cita</mat-radio-button>
-      </mat-radio-group>
-    </div>
-    
-    <button id="register-btn" type="button" mat-button (click)="registerUser()">
-      Registrarse
-    </button>
-  
-    <p>¿Ya tienes una cuenta? <a class="clickable-link" (click)="onWantToLogin()">Iniciar sesión</a></p>
-
+  </mat-form-field>
+    <button 
+        mat-raised-button 
+        color="primary" 
+        type="submit" 
+        class="align-right">Registrarse</button>
+  </form>
+  </mat-card>
+  <p>¿Ya tienes una cuenta? <a class="clickable-link" (click)="onWantToLogin()">Iniciar sesión</a></p>
   </div>
   
