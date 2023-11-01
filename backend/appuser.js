@@ -56,4 +56,14 @@ appuser.delete("/api/user/:id", (req, res, next)=>{
     })
     res.status(200).json({message: 'Usuario Eliminado'});
 });
+
+appuser.post('/api/login', (req, res) => {
+    User.findOne({ email: req.body.email, password: req.body.password }).then(user => {
+        if(user){
+            res.status(200).json({ user: user });
+        } else {
+            res.status(401).json({ message: 'Credenciales incorrectas.' });
+        }
+    });
+});
 module.exports = appuser;

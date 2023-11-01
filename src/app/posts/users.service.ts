@@ -55,6 +55,12 @@ export class PostServiceUser{
             .subscribe(() => {
                 console.log('Eliminado');
             });
-    }}
+    }
+
+login(email: string, password: string) {
+    return this.http.post<{ message: string, user: User }>('http://localhost:2000/api/login', { email, password });
+}
+
+}
 
 

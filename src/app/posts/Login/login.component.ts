@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Output } from "@angular/core";
 import { Router } from '@angular/router';
+import { PostServiceUser } from "../users.service";
+
 
 @Component({
     selector: 'app-login',
@@ -18,7 +20,7 @@ export class LoginComponent{
     this.wantToRegister.emit();
   }
 
-  constructor(private router: Router) { }
+  constructor(private router: Router ,private authService: PostServiceUser) { }
 
   ngOnInit(): void {
   }
@@ -28,24 +30,17 @@ export class LoginComponent{
     this.passwordValue = '';
   }
 
-  validateAccess(): void {
-    const validCredentials = [
-      { user: 'SA', password: 'SA' },
-      { user: 'ADMIN', password: 'JHON' },
-      { user: 'LAISHA', password: 'SOTO' }
-    ];
-
-    if (validCredentials.some(cred => cred.user === this.userValue && cred.password === this.passwordValue)) {
-      this.message = 'Acceso correcto';
-      this.router.navigate(['/UsuarioCita']);
-    } else {
-      this.message = 'Acceso denegado';
-    }
-
-    this.clearFields();
-  }
-
-  
+validateAccess(): void {
+  this.authService.login(this.userValue, this.passwordValue).subscribe(
+      data => {
+          this.message = 'Acceso correcto';
+          this.router.navigate(['/UsuarioCita']);
+      },
+      error => {
+          this.message = 'Esos datos no pertenecen a una cuenta registrada';
+      }
+  );
+}
 
 }
 

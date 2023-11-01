@@ -7,6 +7,9 @@ import { PostServiceUser } from "../users.service";
   styleUrls: ['./post-registro.component.css']
 })
 export class RegisterComponent {
+  
+  passwordMismatch = false;
+  showSuccessDialog = false;
 
   form: NgForm = new NgForm([], []); 
   constructor(public postsServiceUser: PostServiceUser) {
@@ -16,12 +19,17 @@ export class RegisterComponent {
     if(form.invalid){
      return
     }
+
+    if (form.value.password !== form.value.passwordC) {
+      this.passwordMismatch = true;
+      return;
+  } else {
+      this.passwordMismatch = false;
+      this.showSuccessDialog = true;
+  }
      this.postsServiceUser.addUser(form.value.name, form.value.email, form.value.password, form.value.passwordC);
      form.resetForm();
     }
-
-
-    
 
 
   @Output() wantToLogin = new EventEmitter<void>();

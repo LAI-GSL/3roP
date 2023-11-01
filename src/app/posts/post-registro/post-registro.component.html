@@ -6,14 +6,13 @@
     <div class="register-input-group">
       <label for="nameInput">Nombre</label>
       <input 
-            matInput 
-            type="text"
-            id="name"
-            name="name" 
-            ngModel
-            required
-            placeholder="Nombre"
-            #title ="ngModel" class="register-form-field">
+      matInput 
+      type="text"
+      id="name"
+      name="name" 
+      ngModel
+      required
+      #title ="ngModel" class="register-form-field">
     </div>
   </mat-form-field>
   <mat-form-field>
@@ -26,7 +25,6 @@
       name="email" 
       ngModel
       required
-      placeholder="Email"
       #title ="ngModel" class="register-form-field">
     </div>
   </mat-form-field>
@@ -40,7 +38,6 @@
       name="password" 
       ngModel
       required
-      placeholder="password"
       #title ="ngModel" class="register-form-field">
     </div>
   </mat-form-field>
@@ -54,7 +51,6 @@
       name="passwordC" 
       ngModel
       required
-      placeholder="passwordC"
       #title ="ngModel" class="register-form-field">
     </div>
   </mat-form-field>
@@ -63,6 +59,13 @@
         color="primary" 
         type="submit" 
         class="align-right">Registrarse</button>
+        <div *ngIf="passwordMismatch">
+          <p style="color: red">Las contraseñas no coinciden.</p>
+      </div>
+      <div *ngIf="showSuccessDialog">
+          <p style="color: green">Te has registrado correctamente. Ahora puedes iniciar sesión.</p>
+      </div>
+      
   </form>
   </mat-card>
   <p>¿Ya tienes una cuenta? <a class="clickable-link" (click)="onWantToLogin()">Iniciar sesión</a></p>

@@ -28,10 +28,8 @@
     color:aquamarine
 }
 .logo {
-    height: 500%;
-  margin: 100 auto;
-  max-width: 2000%;
-  justify-content: space-between;
+    height: 200px; 
+    width: auto;
 }
 
 
@@ -42,8 +40,10 @@
     padding: 0 20px; }
 
 .logo-container {
+    flex-grow: 1;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
 }
 
 .icon-container {
