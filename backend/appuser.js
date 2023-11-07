@@ -49,6 +49,12 @@ appuser.get ('/api/user',(req, res, next) =>{
   
 });
 appuser.delete("/api/user/:id", (req, res, next)=>{
+
+    User.findById(req.params.id, (err, user) => {
+        if (user.role === 'admin') {
+            return res.status(403).json({ message: 'No se puede eliminar el usuario administrador.' });
+        }
+    
     User.deleteOne({
         _id: req.params.id
     }).then(result =>{
@@ -56,11 +62,12 @@ appuser.delete("/api/user/:id", (req, res, next)=>{
     })
     res.status(200).json({message: 'Usuario Eliminado'});
 });
+});
 
 appuser.post('/api/login', (req, res) => {
     User.findOne({ email: req.body.email, password: req.body.password }).then(user => {
         if(user){
-            res.status(200).json({ user: user });
+            res.status(200).json({ user: user, isAdmin: user.role === 'admin' });
         } else {
             res.status(401).json({ message: 'Credenciales incorrectas.' });
         }

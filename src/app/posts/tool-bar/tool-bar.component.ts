@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 
 export class ToolbarComponent{
 
+    esAdmin: boolean = false;
     @Input() showLogoutButton = false;
 
     constructor(private router: Router) {}
@@ -16,4 +17,8 @@ export class ToolbarComponent{
     onLogout() {
         this.router.navigate(['/principal']); 
     }
+
+    abrirPanelAdmin(): void {
+        console.log('Abrir panel de administración');
+      }
 }

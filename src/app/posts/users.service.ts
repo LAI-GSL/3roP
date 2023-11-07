@@ -4,6 +4,7 @@ import { Subject } from "rxjs";
 //NUEVO
 import { HttpClient } from "@angular/common/http";
 import {map} from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
 export class PostServiceUser{
@@ -57,10 +58,12 @@ export class PostServiceUser{
             });
     }
 
-login(email: string, password: string) {
-    return this.http.post<{ message: string, user: User }>('http://localhost:2000/api/login', { email, password });
-}
-
+    login(email: string, password: string) {
+        return this.http.post<{ message: string, user: User, isAdmin: boolean }>('http://localhost:2000/api/login', { email, password })
+            .pipe(tap(response => {
+               
+            }));
+    }
 }
 
 
