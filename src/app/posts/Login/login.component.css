@@ -4,19 +4,23 @@ body {
   height: 100vh;
   margin: 0;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  overflow: hidden;
+  overflow: auto; 
+  width: 100%;
+  z-index: 100;
 }
 
 .container {
   background-color: rgba(255, 255, 255, 0.9);
   padding: 40px 60px;
   border-radius: 10px;
-  width: 400px;
+  width: 90%;
   text-align: center;
   box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease;
+  max-width: 400px;
+  
 }
 
 .container:hover {
@@ -69,4 +73,32 @@ p {
 
 .clickable-link {
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 30px 40px; 
+  }
+
+  h2, .input-group label, p {
+    font-size: 14px; 
+  }
+
+  #basic {
+    padding: 10px 0; 
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px 30px; 
+  }
+
+  h2, .input-group label, p {
+    font-size: 12px; 
+  }
+
+  #basic {
+    font-size: 14px; 
+  }
 }

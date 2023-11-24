@@ -2,17 +2,24 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './posts/Login/login.component';
 import { RegisterComponent } from './posts/post-registro/post-registro.component';
-import { TreeComponent } from './posts/tree/tree.component';
+import { TreeComponents } from './posts/tree/tree.component';
 import { MatTabComponent } from './posts/mat-tab/mat-tab.component';
-
+import { AdminUsersComponent } from './posts/Usuarios/usuarios.component';
+import { UserCreateComponent } from './posts/user-create/usercreate.component';
+import { verificacionComponent } from './posts/verificacion/veri.component';
+AdminUsersComponent
+UserCreateComponent
+verificacionComponent
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: ' ', component: TreeComponents },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'principal', component: TreeComponent },
+  { path: 'ruta-admin', component: UserCreateComponent},
+  { path: 'principal', component: TreeComponents },
   { path: 'UsuarioCita', component: MatTabComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' }
+  { path: 'verificacion', component: verificacionComponent}
+
 ];
 
 @NgModule({

@@ -3,7 +3,8 @@ export interface User {
     name:string,
     email: string,
     password: string,
-    passwordC: string
+    passwordC: string,
+    role?: string;
   }
   
 

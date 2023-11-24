@@ -5,6 +5,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    z-index: 2000; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
 }
 .navbar-nav {
     display: flex;
@@ -71,4 +76,60 @@
 
 .login-container {
     margin-left: auto; 
+}
+
+a[routerLink] {
+    text-decoration: none;
+    color: white; 
+    padding: 10px 15px;
+    border-radius: 4px;
+    transition: color 0.3s ease;
+  }
+  
+  a[routerLink]:hover {
+    color:azure;
+  }
+  
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+        gap: 10px; 
+    }
+
+    .nav-item {
+        margin-right: 5px;    
+    }
+
+    .logo {
+        height: 150px; 
+    }
+    a[routerLink] {
+        font-size: 16px;
+        padding: 10px 12px;
+      }
+}
+
+@media (max-width: 480px) {
+    a[routerLink] {
+        display: block; 
+        margin: 5px 0; 
+        padding: 8px 10px;
+        font-size: 14px; 
+      }
+    .header {
+        padding: 0 10px;
+    }
+
+    .navbar-nav {
+        display: none; 
+    }
+
+    .nav-link {
+        font-size: 14px; 
+    }
+
+    .logo {
+        height: 100px; 
+    }
 }

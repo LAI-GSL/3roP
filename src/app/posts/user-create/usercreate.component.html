@@ -1,9 +1,9 @@
-<div class="container">
-    <h2>Regístrate</h2>
+<div class="register-container">
+    <h2>Registro de usuarios</h2>
 <mat-card class="matcard">
   <form (submit)="onAddUser(userForm)" #userForm = "ngForm" class="custom-form" >
-    <mat-form-field class="example-form-field">
-    <div class="input-group">
+    <mat-form-field>
+    <div class="register-input-group">
       <label for="nameInput">Nombre</label>
       <input 
       matInput 
@@ -12,11 +12,11 @@
       name="name" 
       ngModel
       required
-      #title ="ngModel" >
+      #title ="ngModel" class="register-form-field">
     </div>
   </mat-form-field>
-  <mat-form-field class="example-form-field">
-    <div class="input-group">
+  <mat-form-field>
+    <div class="register-input-group">
       <label for="emailInput">Correo Electrónico</label>
       <input 
       matInput 
@@ -25,11 +25,11 @@
       name="email" 
       ngModel
       required
-      #title ="ngModel">
+      #title ="ngModel" class="register-form-field">
     </div>
   </mat-form-field>
-  <mat-form-field class="example-form-field">
-    <div class="input-group">
+  <mat-form-field>
+    <div class="register-input-group">
       <label for="passwordInput">Contraseña</label>
       <input 
       matInput 
@@ -38,11 +38,11 @@
       name="password" 
       ngModel
       required
-      #title ="ngModel">
+      #title ="ngModel" class="register-form-field">
     </div>
   </mat-form-field>
-  <mat-form-field class="example-form-field">
-    <div class="input-group">
+  <mat-form-field>
+    <div class="register-input-group">
       <label for="confirmPasswordInput">Confirmar Contraseña</label>
       <input 
       matInput 
@@ -51,22 +51,22 @@
       name="passwordC" 
       ngModel
       required
-      #title ="ngModel">
+      #title ="ngModel" class="register-form-field">
     </div>
   </mat-form-field>
     <button 
         mat-raised-button 
         color="primary" 
         type="submit" 
-        class="align-right">Registrarse</button>
+        class="align-right">Registrar</button>
         <div *ngIf="passwordMismatch">
           <p style="color: red">Las contraseñas no coinciden.</p>
       </div>
       <div *ngIf="showSuccessDialog">
-          <p style="color: green">Te has registrado correctamente. Ahora puedes iniciar sesión.</p>
+          <p style="color: green">Usuario registrado correctamente</p>
       </div>
       
   </form>
   </mat-card>
+  <app-admin></app-admin>
   </div>
-  

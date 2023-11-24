@@ -96,13 +96,14 @@
       <div class="button-group">
         <div class="form-group">
           <button mat-button (click)="openDialog()" class="politicasbtn">Políticas</button>
-        <mat-checkbox class="example-margin" name="consentConfirmation" [(ngModel)]="form.value.consentConfirmation">Confirmación de consentimiento</mat-checkbox>
+        <mat-checkbox class="example-margin" name="consentConfirmation" [(ngModel)]="consentConfirmed">Confirmación de consentimiento</mat-checkbox>
         </div>
         <button 
         mat-raised-button 
         color="primary" 
         type="submit" 
-        class="align-right">Agendar</button>
+        class="align-right"
+        [disabled]="!consentConfirmed">Agendar</button>
       </div>
     </form>
   </mat-card>

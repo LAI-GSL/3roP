@@ -25,7 +25,7 @@ import {MatTableModule} from '@angular/material/table';
 import { TableComponent } from './posts/table/table.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatTreeModule} from '@angular/material/tree'; 
-import { TreeComponent } from './posts/tree/tree.component';
+import { TreeComponents } from './posts/tree/tree.component';
 import { LoginComponent } from './posts/Login/login.component';
 import { RegisterComponent } from './posts/post-registro/post-registro.component';
 import { MatRadioModule } from '@angular/material/radio';
@@ -34,6 +34,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { MatTabComponent } from './posts/mat-tab/mat-tab.component';
 import {HttpClientModule} from '@angular/common/http';
 import { PostServiceUser } from './posts/users.service';
+import { AdminUsersComponent } from './posts/Usuarios/usuarios.component';
+import {UserCreateComponent} from './posts/user-create/usercreate.component'
 
 @NgModule({
   declarations: [
@@ -45,7 +47,10 @@ import { PostServiceUser } from './posts/users.service';
     TableComponent,
     LoginComponent,
     RegisterComponent,
-    MatTabComponent
+    MatTabComponent,
+    AdminUsersComponent,
+    UserCreateComponent,
+    TreeComponents
   ],
   imports: [
     BrowserModule,
@@ -67,7 +72,6 @@ import { PostServiceUser } from './posts/users.service';
     MatTableModule,
     MatProgressBarModule,
     MatTreeModule,
-    TreeComponent,
     MatRadioModule,
     HttpClientModule
   ],

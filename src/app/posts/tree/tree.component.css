@@ -1,160 +1,197 @@
-body {
-    font-family: 'Acme', sans-serif;
+* {
     margin: 0;
     padding: 0;
-}
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
 
-.hero-section {
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .hero-section, .services-section {
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+  }
+  
+  .service-item {
+    transition: all 0.3s ease;
+  }
+
+  .hero-section {
+    background: url('https://code7.com/wp-content/uploads/2020/02/agendamento-de-consultas.jpg') no-repeat center center/cover;
+    padding: 100px 20px;
     position: relative;
-    text-align: center;
-    background-image: url('https://code7.com/wp-content/uploads/2020/02/agendamento-de-consultas.jpg');
-    background-size: cover;
-    padding: 90px 0;
-    color: #fff;
-}
-
-.hero-image {
-    width: 1110px;
-    height: auto;
-    opacity: 0;
-}
-
-.hero-text {
-    position: absolute;
-    top: 50%;
-    left: 30%;
-    transform: translate(-50%);
-    background-color: rgba(0, 0, 0, 0.7);
     color: white;
+  }
+  
+  .content-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .hero-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .hero-text {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
     border-radius: 10px;
     width: 80%;
-    max-width: 800px;
-    text-align: center;
-    line-height: 1.5;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.hero-title {
-    font-size: 24px;
-    font-weight: bold;
+    max-width: 900px;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
     margin-bottom: 20px;
-}
-
-.hero-subtitle {
+    font-weight: bold;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
     font-size: 18px;
     margin-bottom: 30px;
-}
-
-.services-section {
+  }
+  .services-section {
     background-color: #f5f5f5;
-    padding: 60px 0;
+    padding: 50px 20px;
     text-align: center;
-}
-
-.section-content {
+  }
+  
+  .section-content {
     max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section-title {
-    font-size: 32px;
+    margin: auto;
+  }
+  
+  .section-title {
+    font-size: 2rem;
     color: #333;
     margin-bottom: 20px;
-}
-
-.section-description {
+  }
+  
+  .section-description {
     font-size: 18px;
     color: #666;
-    margin-bottom: 40px;
-}
-
-.service-list {
+    margin-bottom: 30px;
+  }
+  
+  .service-list {
     list-style: none;
-    padding: 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: flex-start;
-}
-
-.service-item {
-    margin: 0 20px;
-    max-width: 300px;
-    background-color: #fff;
+    gap: 20px;
+  }
+  
+  .service-item {
+    background-color: white;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.service-icon img {
-    max-width: 60px;
-    height: auto;
+    width: calc(33.333% - 20px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  .service-icon img {
+    max-width: 50px;
     margin-bottom: 10px;
-}
-
-.service-title {
-    font-size: 20px;
+  }
+  
+  .service-title {
+    font-size: 1.4rem;
     color: #333;
-    margin-bottom: 10px;
-}
-
-.service-description {
-    font-size: 16px;
-    color: #777;
-}
-
-mat-tree {
-    width: 100%;
-    background-color: darkcyan; 
-    border-radius: 10px; 
-    padding: 10px; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .service-description {
+    font-size: 1rem;
+    color: #666;
   }
 
-  mat-tree-node {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px; 
-    border-radius: 4px; 
-    margin: 5px 0; 
-    transition: background-color 0.3s ease; 
+  app-login {
+    position: absolute;
+    top: 250px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+
+    width: 400px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
   }
 
-  mat-tree-node button.mat-icon-button {
-    margin-right: 10px; 
-    padding: 4px;
-    min-width: 0;
+  @media (max-width: 768px) {
+    .hero-text {
+      width: 90%; 
+      padding: 15px; 
+      top: 20%; 
+      max-width: 600px; 
+    }
+    .hero-title {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+    }
+  
+    .hero-subtitle {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+  
+    .service-item {
+      width: calc(50% - 20px);
+    }
+    app-login {
+      left: 50%; 
+      width: 300px; 
+      padding: 15px;
+      top: 100px; 
+    }
   }
+  
+  @media (max-width: 480px) {
+    .hero-text {
+      width: 95%; 
+      padding: 10px; 
+      top: 25%; 
+      max-width: none; 
+    }
+    .hero-title {
+      font-size: 1.4rem; 
+      margin-bottom: 10px;
+    }
+  
+    .hero-subtitle {
+      font-size: 0.9rem; 
+      margin-bottom: 15px;
+    }
+  
+    .service-item {
+      width: 100%;
+    }
+    app-login {
+      left: 50%;
+      width: 90%; 
+      padding: 10px;
+      top: 70px;
+      transform: translateX(-50%);
+    }
+    .hero-section {
+      padding: 500px 100px;
+      position: relative;
+      color: white;
+    }
 
-  mat-tree-node .mat-icon {
-    font-size: 24px; 
-    transition: transform 0.3s ease;
-  }
-
-  mat-tree-node.expanded .mat-icon {
-    transform: rotate(90deg);
-  }
-
-  mat-tree-node .mat-tree-node-content {
-    cursor: pointer;
-    flex-grow: 5;
-    font-weight: 500; 
-    font-size: 18px; 
-    color: #333; 
-  }
-
-  mat-tree-node.mat-tree-node-selected {
-    background-color: #4caf50; 
-    color: white;
-  }
-
-  mat-tree-node:hover {
-    background-color: #e0e0e0; 
   }
   

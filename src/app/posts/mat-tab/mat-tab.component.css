@@ -1,0 +1,42 @@
+/* Estilos generales */
+.mat-tab-group {
+    width: 100%; 
+    background-color: #b11b1b;
+  }
+
+  body {
+    background-image: linear-gradient(to right, teal,mediumAquaMarine);
+    }
+  .mat-tab-label {
+    color: teal;
+    font-size: 16px; 
+    padding: 10px 15px; 
+    text-transform: uppercase; 
+  }
+
+  .mat-tab-label:hover,
+  .mat-tab-label.mat-tab-label-active {
+    color: mediumAquaMarine; 
+    background-color: #f0f0f0; 
+  }
+
+  .mat-tab-body-content {
+    padding: 20px; 
+    background-color: #b11b1b;
+   
+  }
+
+  @media (max-width: 768px) {
+    .mat-tab-label {
+      font-size: 14px; 
+      padding: 8px 12px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .mat-tab-label {
+      font-size: 12px; 
+      padding: 6px 10px;
+    }
+  }
+  

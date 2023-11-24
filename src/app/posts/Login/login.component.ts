@@ -4,7 +4,7 @@ import { PostServiceUser } from "../users.service";
 
 
 @Component({
-    selector: 'app-login',
+    selector:'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css'],
 })
@@ -32,14 +32,23 @@ export class LoginComponent{
 
 validateAccess(): void {
   this.authService.login(this.userValue, this.passwordValue).subscribe(
-      data => {
-          this.message = 'Acceso correcto';
+    data => {
+      console.log("Login response:", data);
+        this.authService.setAdminStatus(data.isAdmin); 
+        this.authService.setAuth(true);
+        this.message = 'Acceso correcto';
+        if (data.isAdmin) {
+          console.log("Usuario es admin, redirigiendo...");
+          this.router.navigate(['/ruta-admin']);
+        } else {
           this.router.navigate(['/UsuarioCita']);
-      },
-      error => {
-          this.message = 'Esos datos no pertenecen a una cuenta registrada';
-      }
-  );
+        }
+    },
+    error => {
+        this.message = 'Esos datos no pertenecen a una cuenta registrada';
+    }
+);
+  
 }
 
 }

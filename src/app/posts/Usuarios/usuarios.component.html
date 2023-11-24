@@ -1,0 +1,15 @@
+<mat-accordion multi ="true" *ngIf="users.length > 0">
+  <mat-expansion-panel *ngFor="let user of users">
+      <mat-expansion-panel-header>
+          <mat-panel-title>
+              {{ user.name }}
+          </mat-panel-title>
+      </mat-expansion-panel-header>
+      <p>Email: {{ user.email }}</p>
+      <p>Password: {{user.password}}</p>
+      <mat-action-row>
+        <button mat-button color="warn" *ngIf="user.role !== 'admin'" (click)="onDeleteUser(user.id)">Eliminar</button>
+      </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+

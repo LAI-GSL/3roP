@@ -13,7 +13,7 @@ import { ComponentProgressBar } from "../progressB/progress.component";
 
 export class PostCreateComponent{
   form: NgForm = new NgForm([], []); 
-
+  consentConfirmed = false; 
   constructor(public postsService: PostService, public dialog: MatDialog,){}
 
   onAddPost(form: NgForm){
@@ -22,6 +22,7 @@ export class PostCreateComponent{
   }
   this.postsService.addPost(form.value.name, form.value.date, form.value.time, form.value.phoneNumber, form.value.email, form.value.notes, form.value.consentConfirmation);
      form.resetForm();
+     this.consentConfirmed = false;
   }
 
 openDialog() {
