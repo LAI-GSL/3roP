@@ -1,9 +1,9 @@
 <div class="container">
-    <h2>Regístrate</h2>
-<mat-card class="matcard">
+<mat-card class="custom-card">
+  <mat-card-title class = "title">Registrate</mat-card-title>
   <form (submit)="onAddUser(userForm)" #userForm = "ngForm" class="custom-form" >
-    <mat-form-field class="example-form-field">
-    <div class="input-group">
+    <div class="form-group">
+    <mat-form-field>
       <label for="nameInput">Nombre</label>
       <input 
       matInput 
@@ -13,10 +13,10 @@
       ngModel
       required
       #title ="ngModel" >
-    </div>
   </mat-form-field>
-  <mat-form-field class="example-form-field">
-    <div class="input-group">
+</div>
+<div class="form-group">
+  <mat-form-field>
       <label for="emailInput">Correo Electrónico</label>
       <input 
       matInput 
@@ -26,10 +26,10 @@
       ngModel
       required
       #title ="ngModel">
-    </div>
   </mat-form-field>
-  <mat-form-field class="example-form-field">
-    <div class="input-group">
+</div>
+<div class="form-group">
+  <mat-form-field>
       <label for="passwordInput">Contraseña</label>
       <input 
       matInput 
@@ -39,10 +39,10 @@
       ngModel
       required
       #title ="ngModel">
-    </div>
   </mat-form-field>
-  <mat-form-field class="example-form-field">
-    <div class="input-group">
+</div>
+<div class="form-group">
+  <mat-form-field>
       <label for="confirmPasswordInput">Confirmar Contraseña</label>
       <input 
       matInput 
@@ -52,8 +52,8 @@
       ngModel
       required
       #title ="ngModel">
-    </div>
   </mat-form-field>
+</div>
     <button 
         mat-raised-button 
         color="primary" 
@@ -63,7 +63,7 @@
           <p style="color: red">Las contraseñas no coinciden.</p>
       </div>
       <div *ngIf="showSuccessDialog">
-          <p style="color: green">Te has registrado correctamente. Ahora puedes iniciar sesión.</p>
+          <p style="color: green">Verfica tu cuenta a traves del correo electronico que te hemos enviado.</p>
       </div>
       
   </form>

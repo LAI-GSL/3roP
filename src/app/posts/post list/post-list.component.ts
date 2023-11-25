@@ -49,10 +49,21 @@ export class PostListComponent implements OnInit, OnDestroy  {
           <style>
             body {
               font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-              color: #000;
-              margin: 20mm;
-              padding: 20px;
+              margin: 0;
+              padding: 0;
+              position: relative;
             }
+            .header-image {
+              position: absolute;
+              top: 0; /* Ajusta la distancia desde la parte superior de la página */
+              right: 100; /* Ajusta la distancia desde la parte derecha de la página */
+              width: 20px; /* Ancho de la imagen */
+              height: auto; /* Altura automática para mantener la proporción */
+            }
+            @media print {
+              .header-image {
+                width: 100px; /* Puede que necesites ajustar el ancho para la impresión */
+              }
       
             h1, h2, h3 {
               color: #333;
@@ -114,6 +125,7 @@ export class PostListComponent implements OnInit, OnDestroy  {
           </style>
         </head>
         <body onload="window.print();window.close()">
+        <img src="./assets/img/sello.png" alt="Cita verificada" />
           <!-- Aquí va el contenido a imprimir -->
           ${printContents}
         </body>

@@ -2,8 +2,7 @@
     <div class="logo-container">
     
     </div>
-    <button mat-button (click)="onLogout()" *ngIf="isUserAuthenticated">Cerrar Sesión</button>
-    <a routerLink="/principal">Inicio</a>
-    <a routerLink="/register">Registrate</a>
-    
+    <button mat-button (click)="onLogout()" *ngIf="isUserAuthenticated || isAdmin">Cerrar Sesión</button>
+    <a routerLink="/principal" *ngIf="!isUserAuthenticated && !isAdmin">Inicio</a>
+    <a routerLink="/register" *ngIf="!isUserAuthenticated && !isAdmin">Registrate</a>
 </mat-toolbar>

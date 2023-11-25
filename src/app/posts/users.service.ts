@@ -23,7 +23,8 @@ export class PostServiceUser{
                     name: user.name,
                     email: user.email,
                     password:user.password,
-                    passwordC:user.passwordC
+                    passwordC:user.passwordC,
+                    isVerified:user.isVerified
 
                 };
             });
@@ -44,7 +45,7 @@ export class PostServiceUser{
       this.adminLoggedIn.next(isAdmin);
     }
     addUser(name: string, email: string, password: string, passwordC: string) {
-      const user: User = { name, email, password, passwordC };
+      const user: User = { name, email, password, passwordC};
       this.http.post<{ message: string }>('http://localhost:2000/api/user', user)
           .subscribe({
               next: (responseData) => {

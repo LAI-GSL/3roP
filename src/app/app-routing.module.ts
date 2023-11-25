@@ -12,7 +12,7 @@ UserCreateComponent
 verificacionComponent
 
 const routes: Routes = [
-  { path: ' ', component: TreeComponents },
+  { path: '', component: TreeComponents },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'ruta-admin', component: UserCreateComponent},

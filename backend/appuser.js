@@ -3,7 +3,11 @@ const bodyParser = require("body-parser");
 const User = require('./models/user');
 const mongoose = require("mongoose");
 const nodemailer = require('nodemailer');
+const crypto = require('crypto');
 
+function generateVerificationToken() {
+  return crypto.randomBytes(32).toString('hex');
+}
 
 const transporter = nodemailer.createTransport({
   service: 'hotmail',
@@ -35,14 +39,17 @@ appuser.use((req, res, next) =>{
 });
 
 appuser.post ("/api/user", (req, res, next)=>{
+  const userVerificationToken = generateVerificationToken();
     const user =new User({
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
-        passwordC: req.body.passwordC
+        passwordC: req.body.passwordC,
+        isVerified: false,
+        verificationToken: userVerificationToken
     });
     user.save().then(result => {
-      const verificationLink = `http://localhost:2000/verificacion`;
+      const verificationLink = `http://localhost:2000/api/verificacion?token=${userVerificationToken}`;
       const mailOptions = {
         from: 'laisha.soto14@hotmail.com',
         to: user.email,
@@ -102,13 +109,33 @@ appuser.delete("/api/user/:id", (req, res, next)=>{
     });
 });
 
+
 appuser.post('/api/login', (req, res) => {
-    User.findOne({ email: req.body.email, password: req.body.password }).then(user => {
-        if(user){
-            res.status(200).json({ user: user, isAdmin: user.role === 'admin' });
-        } else {
-            res.status(401).json({ message: 'Credenciales incorrectas.' });
-        }
-    });
+  User.findOne({ email: req.body.email, password: req.body.password }).then(user => {
+      if(user){
+          res.status(200).json({ user: user, isAdmin: user.role === 'admin' });
+      } else {
+          res.status(401).json({ message: 'Credenciales incorrectas.' });
+      }
+  });
+});
+
+appuser.get('/api/verificacion', async (req, res) => {
+  try {
+    const token = req.query.token;
+    const user = await User.findOne({ verificationToken: token });
+
+    if (!user) {
+      return res.status(400).json({ message: "Token de verificación inválido o ya ha sido utilizado." });
+    }
+
+    user.isVerified = true;
+    user.verificationToken = undefined; // Elimina el token ya que ya no será necesario
+    await user.save();
+
+    res.status(200).json({ message: "La cuenta ha sido verificada. Por favor, inicie sesión." });
+  } catch (err) {
+    res.status(500).json({ message: "No se pudo verificar la cuenta.", error: err });
+  }
 });
 module.exports = appuser;

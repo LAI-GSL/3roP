@@ -1,30 +1,12 @@
-body {
-  font-family: 'Arial', sans-serif;
-  background-size: cover;
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  overflow: auto; 
-  width: 100%;
-  z-index: 100;
-}
-
 .container {
   background-color: rgba(255, 255, 255, 0.9);
   padding: 40px 60px;
   border-radius: 10px;
-  width: 90%;
+  width: 80%;
   text-align: center;
   box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease;
   max-width: 400px;
-  
-}
-
-.container:hover {
-  transform: translateY(-10px);
 }
 
 h2 {
@@ -75,30 +57,40 @@ p {
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
+/* Para tablets en modo retrato */
+@media screen and (max-width: 768px) {
   .container {
-    padding: 30px 40px; 
+    padding: 30px 40px; /* Reducción del padding */
+    max-width: 350px; /* Tamaño máximo más pequeño */
   }
 
-  h2, .input-group label, p {
-    font-size: 14px; 
+  h2 {
+    font-size: 1.8rem; /* Reducción del tamaño del título */
   }
 
   #basic {
-    padding: 10px 0; 
+    padding: 10px 0; /* Reducción del padding del botón */
+    font-size: 14px; /* Reducción del tamaño de fuente del botón */
   }
 }
 
-@media (max-width: 480px) {
+/* Para dispositivos móviles */
+@media screen and (max-width: 480px) {
   .container {
-    padding: 20px 30px; 
+    padding: 20px 30px; /* Reducción adicional del padding */
+    max-width: 300px; /* Tamaño máximo aún más pequeño */
   }
 
-  h2, .input-group label, p {
-    font-size: 12px; 
+  h2 {
+    font-size: 1.6rem; /* Tamaño de fuente más pequeño para el título */
   }
 
   #basic {
-    font-size: 14px; 
+    padding: 8px 0; /* Reducción del padding del botón */
+    font-size: 13px; /* Tamaño de fuente más pequeño para el botón */
+  }
+
+  .input-group label {
+    font-size: 14px; /* Tamaño de fuente más pequeño para las etiquetas */
   }
 }

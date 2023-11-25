@@ -5,6 +5,7 @@ export interface User {
     password: string,
     passwordC: string,
     role?: string;
+    isVerified?: boolean;
   }
   
 

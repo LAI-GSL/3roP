@@ -24,6 +24,7 @@
   }
 
   .hero-section {
+    position: relative;
     background: url('https://code7.com/wp-content/uploads/2020/02/agendamento-de-consultas.jpg') no-repeat center center/cover;
     padding: 100px 20px;
     position: relative;
@@ -122,10 +123,10 @@
 
   app-login {
     position: absolute;
-    top: 250px; 
+    top: 24%; 
     left: 50%; 
     transform: translateX(-50%); 
-
+    z-index: 100;
     width: 400px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -134,63 +135,51 @@
 
   @media (max-width: 768px) {
     .hero-text {
-      width: 90%; 
-      padding: 15px; 
-      top: 20%; 
-      max-width: 600px; 
+      display: none;
     }
-    .hero-title {
-      font-size: 1.6rem;
-      margin-bottom: 15px;
-    }
-  
-    .hero-subtitle {
-      font-size: 1rem;
-      margin-bottom: 20px;
+
+    .hero-section {
+      min-height: 60vh;
     }
   
     .service-item {
-      width: calc(50% - 20px);
+      width: calc(50% - 20px); /* Ajuste para 2 columnas en tablets */
     }
+  
     app-login {
-      left: 50%; 
-      width: 300px; 
-      padding: 15px;
-      top: 100px; 
+      left: 65%;
+      transform: translateX(-50%);
+      top: 5%; /* Ajusta la posición para dispositivos móviles */
+    width: 90%;
     }
   }
   
   @media (max-width: 480px) {
     .hero-text {
-      width: 95%; 
-      padding: 10px; 
-      top: 25%; 
-      max-width: none; 
+      display: none; 
     }
     .hero-title {
-      font-size: 1.4rem; 
-      margin-bottom: 10px;
+      display: none; 
     }
   
     .hero-subtitle {
-      font-size: 0.9rem; 
-      margin-bottom: 15px;
+      display: none; 
+    }
+  
+    .hero-section {
+      min-height: 60vh;
     }
   
     .service-item {
-      width: 100%;
+      width: 100%; /* Ajuste para una sola columna en móviles */
+      margin-bottom: 20px; /* Espacio adicional entre elementos */
     }
+  
     app-login {
       left: 50%;
-      width: 90%; 
-      padding: 10px;
-      top: 70px;
       transform: translateX(-50%);
-    }
-    .hero-section {
-      padding: 500px 100px;
-      position: relative;
-      color: white;
+      top: 5%; /* Ajusta la posición para dispositivos móviles */
+    width: 90%;
     }
 
   }

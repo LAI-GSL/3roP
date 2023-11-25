@@ -30,26 +30,33 @@ export class LoginComponent{
     this.passwordValue = '';
   }
 
-validateAccess(): void {
-  this.authService.login(this.userValue, this.passwordValue).subscribe(
-    data => {
-      console.log("Login response:", data);
-        this.authService.setAdminStatus(data.isAdmin); 
-        this.authService.setAuth(true);
-        this.message = 'Acceso correcto';
-        if (data.isAdmin) {
-          console.log("Usuario es admin, redirigiendo...");
-          this.router.navigate(['/ruta-admin']);
+  validateAccess(): void {
+    this.authService.login(this.userValue, this.passwordValue).subscribe(
+      data => {
+        console.log("Login response:", data);
+        if (data.user && data.user.isVerified) {
+          this.authService.setAdminStatus(data.isAdmin); 
+          this.authService.setAuth(true);
+          this.message = 'Acceso correcto';
+          if (data.isAdmin) {
+            console.log("Usuario es admin, redirigiendo...");
+            this.router.navigate(['/ruta-admin']);
+          } else {
+            this.router.navigate(['/UsuarioCita']);
+          }
         } else {
-          this.router.navigate(['/UsuarioCita']);
+          // Manejar la cuenta no verificada
+          this.message = 'Por favor verifica tu cuenta antes de iniciar sesión.';
+          this.clearFields();
         }
-    },
-    error => {
-        this.message = 'Esos datos no pertenecen a una cuenta registrada';
-    }
-);
-  
-}
+      },
+      error => {
+        console.error("Login error:", error);
+        this.message = error.error.message || 'Error durante el inicio de sesión';
+        this.clearFields();
+      }
+    );
+  }
 
 }
 
