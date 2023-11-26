@@ -1,0 +1,105 @@
+<div class="container">
+    <mat-card class="custom-card">
+      <mat-card-title class = "title">Registro de profesionales</mat-card-title>
+        <form (submit)="onAddProfe(postForm)" #postForm = "ngForm" class="custom-form" >
+          <div class="form-group">
+          <mat-form-field>
+              <input 
+                matInput 
+                type="text"
+                id="name"
+                name="name" 
+                ngModel
+                required
+                placeholder="Nombre"
+                #title ="ngModel">
+                <mat-error *ngIf="title.invalid">Por favor ingrese nombre</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field>
+              <input
+              matInput 
+              type="text"
+              id="profesion"
+              name="profesion" 
+              ngModel
+              required
+              placeholder="Profesion"
+              #title ="ngModel">
+              <mat-error *ngIf="title.invalid">Por favor ingrese una profesion </mat-error>>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field>
+              <label for="phone-number"></label>
+              <input 
+                matInput 
+                type="text"
+                id="phone-number"
+                name="phoneNumber" 
+                ngModel
+                required
+                placeholder="Telefono"
+                #title ="ngModel">
+                <mat-error *ngIf="title.invalid">Por favor ingrese un numero de telefono</mat-error>>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field>
+              <label for="email"></label>
+              <input 
+              matInput 
+              type="email"
+              id="email"
+              name="email" 
+              ngModel
+              required
+              placeholder="Email"
+              #title ="ngModel">
+              <mat-error *ngIf="title.invalid">Por favor ingrese un correo</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field>
+              <label for="direction"></label>
+              <input 
+              matInput 
+              type="text"
+              id="direction"
+              name="direction"
+              ngModel
+              required
+              placeholder="Direccion"
+              #title ="ngModel">
+              <mat-error *ngIf="title.invalid">Por favor ingrese una direccion</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field>
+              <label for="country"></label>
+              <input 
+              matInput 
+              type="text"
+              id="country"
+              name="country" 
+              ngModel
+              required
+              placeholder="Ciudad"
+              #title ="ngModel">
+              <mat-error *ngIf="title.invalid">Por favor ingrese una ciudad</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="button-group">
+            <button 
+            mat-raised-button 
+            color="primary" 
+            type="submit" 
+            class="align-right"
+           >Agregar</button>
+          </div>
+        </form>
+      </mat-card>
+    </div>
+    
+    

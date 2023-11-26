@@ -36,6 +36,9 @@ import {HttpClientModule} from '@angular/common/http';
 import { PostServiceUser } from './posts/users.service';
 import { AdminUsersComponent } from './posts/Usuarios/usuarios.component';
 import {UserCreateComponent} from './posts/user-create/usercreate.component'
+import { PostProfeComponent } from './posts/post-profe/post-profe.component';
+import { ProfeListComponent } from './posts/profe-list/profe-list.component';
+
 
 @NgModule({
   declarations: [
@@ -50,7 +53,9 @@ import {UserCreateComponent} from './posts/user-create/usercreate.component'
     MatTabComponent,
     AdminUsersComponent,
     UserCreateComponent,
-    TreeComponents
+    TreeComponents,
+    PostProfeComponent,
+    ProfeListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,18 @@
+  <div class="print-content">
+  <mat-accordion multi="true" *ngIf="profes.length > 0">
+    <mat-expansion-panel *ngFor="let profe of profes">
+      <mat-expansion-panel-header>
+        {{profe.name}}
+    </mat-expansion-panel-header>
+    <p>Profesion: {{profe.profesion}}</p>
+    <p>Teléfono: {{profe.phoneNumber}}</p>
+    <p>Correo electrónico: {{profe.email}}</p>
+    <p>Dieccion: {{profe.direction}}</p>
+    <p>Lugar: {{profe.country}}</p>
+      <mat-action-row>
+        <button mat-button color="warn" (click)="onDelete(profe.id)">Eliminar</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion> 
+  </div>
+  <p  class="info-text mat-body-1" *ngIf="profes.length <= 0">No se han agregado profesionales</p>
