@@ -7,4 +7,5 @@ export interface Post {
     email: string;
     notes: string;
     consentConfirmation: boolean;
+    profesion: string
   }

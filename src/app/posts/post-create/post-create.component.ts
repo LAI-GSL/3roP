@@ -4,6 +4,10 @@ import { PostService } from "../posts.service";
 import {MatDialog} from '@angular/material/dialog';
 import { DialogComponent } from "../Dialog/dialog.component";
 import { ComponentProgressBar } from "../progressB/progress.component";
+import { ProfeService } from "../profe.service";
+import { Profe } from "../profe.model";
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Subscription } from "rxjs";
 
 @Component({
     selector: 'app-post-create',
@@ -13,16 +17,41 @@ import { ComponentProgressBar } from "../progressB/progress.component";
 
 export class PostCreateComponent{
   form: NgForm = new NgForm([], []); 
+  profes: Profe[] = [];
   consentConfirmed = false; 
-  constructor(public postsService: PostService, public dialog: MatDialog,){}
+  selectedProfe: string = '';
+  private profesSub!: Subscription;
 
-  onAddPost(form: NgForm){
-  if(form.invalid){
-   return;
+  profeSeleccionado: Profe | null = null;  
+
+
+  onProfeSelect(profe: Profe) {
+    this.profeSeleccionado = profe;
   }
-  this.postsService.addPost(form.value.name, form.value.date, form.value.time, form.value.phoneNumber, form.value.email, form.value.notes, form.value.consentConfirmation);
-     form.resetForm();
-     this.consentConfirmed = false;
+
+
+  constructor(public postsService: PostService, public dialog: MatDialog, private profeService: ProfeService, private fb: FormBuilder){}
+  ngOnInit() {
+    this.profeService.getProfe();
+    this.profesSub =  this.profeService.getProfeUpdateListener()
+      .subscribe((profes:Profe[])=>{
+          this.profes = profes
+      })
+  }
+  
+
+  onAddPost(form: NgForm) {
+    if (form.invalid || !this.selectedProfe) {
+      return;
+    }
+    if (form.invalid) {
+      return;
+    }
+    console.log(this.selectedProfe)
+    this.postsService.addPost(form.value.name, form.value.date, form.value.time, form.value.phoneNumber, form.value.email, form.value.notes, form.value.consentConfirmation, this.selectedProfe);
+    form.resetForm();
+    this.consentConfirmed = false; 
+
   }
 
 openDialog() {

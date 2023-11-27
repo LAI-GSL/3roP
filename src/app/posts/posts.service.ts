@@ -24,7 +24,8 @@ export class PostService{
                     phoneNumber: post.phoneNumber,
                     email: post.email,
                     notes: post.notes,
-                    consentConfirmation: post.consentConfirmation
+                    consentConfirmation: post.consentConfirmation,
+                    profesion: post.profesion
 
                 };
             });
@@ -37,7 +38,7 @@ export class PostService{
     getPostsUpdateListener(){ //FUNCION DE OBSERVABLE
         return this.postsUpdate.asObservable();
     }
-    addPost(name: string, date: Date, time: string, phoneNumber: string, email:string, notes:string, consentConfirmation:boolean){
+    addPost(name: string, date: Date, time: string, phoneNumber: string, email:string, notes:string, consentConfirmation:boolean, profesion: string){
         const post: Post = { 
             name: name,
             date: date,
@@ -45,7 +46,8 @@ export class PostService{
             phoneNumber:phoneNumber,
             email:email,
             notes:notes,
-            consentConfirmation:consentConfirmation
+            consentConfirmation:consentConfirmation,
+            profesion: profesion
             }
         this.http.post<{message: string}>('http://localhost:3000/api/post', post)
         .subscribe((responseData) =>{

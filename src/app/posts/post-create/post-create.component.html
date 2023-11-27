@@ -19,7 +19,6 @@
       <div class="form-group">
         <mat-form-field>
           <input matInput [matDatepicker]="picker"
-          matInput 
           type="text"
           id="date"
           name="date" 
@@ -27,7 +26,7 @@
           required
           placeholder="Fecha"
           #title ="ngModel">
-          <mat-error *ngIf="title.invalid">Por favor ingrese una fecha </mat-error>>
+          <mat-error *ngIf="title.invalid">Por favor ingrese una fecha </mat-error>
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
@@ -51,6 +50,20 @@
         </mat-chip-listbox>
       </div>
       <div class="form-group">
+        <mat-form-field>
+          <mat-label>Profesional</mat-label>
+          <mat-select [(value)]="selectedProfe">
+            <mat-option *ngFor="let profe of profes" [value]="profe.id" >
+              {{profe.name}},
+              {{profe.profesion}},
+              {{profe.country}},
+              {{profe.direction}},
+              {{profe.phoneNumber}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+        <div class="form-group">
         <mat-form-field>
           <label for="phone-number"></label>
           <input 
@@ -89,7 +102,7 @@
             name="notes" 
             ngModel
             placeholder="Descripcion"
-            requiredplaceholder="Contenido"
+            required ="Contenido"
             #content = "ngModel"></textarea>
         </mat-form-field>
       </div>
@@ -108,4 +121,3 @@
     </form>
   </mat-card>
 </div>
-

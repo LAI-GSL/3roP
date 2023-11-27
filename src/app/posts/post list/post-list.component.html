@@ -14,6 +14,7 @@
   <p>Correo electrónico: {{post.email}}</p>
   <p>Notas: {{post.notes}}</p>
   <p>Confirmación de consentimiento: {{post.consentConfirmation ? 'Sí' : 'No'}}</p>
+  <p>Profesion: {{ getProfesionName(post.profesion) }}</p>
     <mat-action-row>
       <button mat-button color="warn" (click)="onDelete(post.id)">Eliminar</button>
       <button mat-raised-button color="primary" (click)="printCitas()">Imprimir Citas</button>

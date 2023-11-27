@@ -35,7 +35,7 @@ appprofe.post ("/api/profe", (req, res, next)=>{
         country:req.body.country
     });
     profe.save();
-    res.statusCode(201).json({
+    res.status(201).json({
         message: 'Profe Added Succesfully'
     });
 });

@@ -62,4 +62,11 @@ export class ProfeService{
             console.error(error);
           });
       }
+
+      getProfeNames() {
+        return this.http.get<{ message: string; names: string[] }>('URL para obtener nombres de profesionales')
+          .pipe(map((data) => {
+            return data.names;
+          }));
+      }
 }

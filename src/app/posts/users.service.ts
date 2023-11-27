@@ -102,6 +102,7 @@ export class PostServiceUser{
       getIsAuthenticated() {
         return this.isAuthenticated.asObservable();
       }
+      
 }
 
 

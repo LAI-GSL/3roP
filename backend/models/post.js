@@ -9,7 +9,13 @@ const postSchema = mongoose.Schema({
     phoneNumber: {type: String, require: true},
     email: {type: String, require: true},
     notes: {type: String, require: true},
-    consentConfirmation: {type: Boolean, require: true}
+    consentConfirmation: {type: Boolean, require: true},
+    profesion: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Profe',
+        required: [function() { return this.consentConfirmed; }, 'Profesion is required when consent is confirmed'], // Ejemplo de condicional
+        default: null 
+      }
 });
 
 module.exports = mongoose.model('Post', postSchema);

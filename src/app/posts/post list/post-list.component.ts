@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy, } from "@angular/core";
 import {Post} from "../post.model";
 import { PostService } from "../posts.service";
 import { Subscription } from "rxjs";
+import { ProfeService } from "../profe.service";
+import { Profe } from "../profe.model";
 
 @Component({
   selector: 'app-post-list',
@@ -9,19 +11,33 @@ import { Subscription } from "rxjs";
   styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent implements OnInit, OnDestroy  {
-
   posts: Post [] = [];
     private postsSub!: Subscription;
-
-    constructor(public postsService: PostService){}
+    private profesSub!: Subscription;
+    profes: Profe[] = [];
+    
+    constructor(public postsService: PostService, private profeService: ProfeService){}
 
     ngOnInit() {
+      this.profeService.getProfe();
+      this.profesSub =  this.profeService.getProfeUpdateListener()
+        .subscribe((profes:Profe[])=>{
+            this.profes = profes
+        })
         this.postsService.getPosts();
       this.postsSub =  this.postsService.getPostsUpdateListener()
         .subscribe((posts:Post[])=>{
             this.posts = posts
+            
         })
     }
+
+    getProfesionName(profesionId: string): string {
+      const profesion = this.profes.find(profe => profe.id === profesionId);
+      return profesion ? profesion.name : 'Profesional no encontrado'; 
+    }
+
+
     ngOnDestroy() {
       this.postsSub.unsubscribe();
   }

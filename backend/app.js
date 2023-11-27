@@ -12,6 +12,7 @@ mongoose.connect("mongodb+srv://LRS:LRS2000@clustersmartbooking.n9fqmlr.mongodb.
     console.log("conexion fallida")
 })
 
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
@@ -33,10 +34,11 @@ app.post ("/api/post", (req, res, next)=>{
         phoneNumber:req.body.phoneNumber,
         email:req.body.email,
         notes:req.body.notes,
-        consentConfirmation:req.body.consentConfirmation
+        consentConfirmation:req.body.consentConfirmation,
+        profesion: req.body.profesion
     });
     post.save();
-    res.statusCode(201).json({
+    res.status(201).json({
         message: 'Post Added Succesfully'
     });
 });

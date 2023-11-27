@@ -38,7 +38,8 @@ import { AdminUsersComponent } from './posts/Usuarios/usuarios.component';
 import {UserCreateComponent} from './posts/user-create/usercreate.component'
 import { PostProfeComponent } from './posts/post-profe/post-profe.component';
 import { ProfeListComponent } from './posts/profe-list/profe-list.component';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,9 @@ import { ProfeListComponent } from './posts/profe-list/profe-list.component';
     MatProgressBarModule,
     MatTreeModule,
     MatRadioModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [PostService, PostServiceUser],
   bootstrap: [AppComponent],

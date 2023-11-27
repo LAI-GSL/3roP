@@ -57,40 +57,39 @@ p {
   cursor: pointer;
 }
 
-/* Para tablets en modo retrato */
 @media screen and (max-width: 768px) {
   .container {
-    padding: 30px 40px; /* Reducción del padding */
-    max-width: 350px; /* Tamaño máximo más pequeño */
+    padding: 30px 40px; 
+    max-width: 350px; 
   }
 
   h2 {
-    font-size: 1.8rem; /* Reducción del tamaño del título */
+    font-size: 1.8rem;
   }
 
   #basic {
-    padding: 10px 0; /* Reducción del padding del botón */
-    font-size: 14px; /* Reducción del tamaño de fuente del botón */
+    padding: 10px 0; 
+    font-size: 14px; 
   }
 }
 
-/* Para dispositivos móviles */
+
 @media screen and (max-width: 480px) {
   .container {
-    padding: 20px 30px; /* Reducción adicional del padding */
-    max-width: 300px; /* Tamaño máximo aún más pequeño */
+    padding: 20px 30px; 
+    max-width: 300px; 
   }
 
   h2 {
-    font-size: 1.6rem; /* Tamaño de fuente más pequeño para el título */
+    font-size: 1.6rem; 
   }
 
   #basic {
-    padding: 8px 0; /* Reducción del padding del botón */
-    font-size: 13px; /* Tamaño de fuente más pequeño para el botón */
+    padding: 8px 0; 
+    font-size: 13px; 
   }
 
   .input-group label {
-    font-size: 14px; /* Tamaño de fuente más pequeño para las etiquetas */
+    font-size: 14px; 
   }
 }
