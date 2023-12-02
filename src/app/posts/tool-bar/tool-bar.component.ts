@@ -1,44 +1,39 @@
-import { Component, Input, OnInit, OnDestroy } from "@angular/core";
-import { Router, NavigationEnd  } from '@angular/router';
+import { Component, Input, OnInit } from "@angular/core";
+import { Router, NavigationEnd, Event as NavigationEvent } from '@angular/router';
 import { PostServiceUser } from "../users.service";
-import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Component({
     selector: 'app-tool-bar',
     templateUrl: './tool-bar.component.html',
     styleUrls: ['./tool-bar.component.css']
 })
+export class ToolbarComponent implements OnInit {
 
-export class ToolbarComponent{
-
-    esAdmin: boolean = false;
     @Input() showLogoutButton = false;
     isUserAuthenticated: boolean = false;
     isOnMainPage: boolean = true;
     isAdmin: boolean = false;
+    isLoggedIn: boolean = false;
 
-    constructor(private router: Router, private serviceUser: PostServiceUser) {
-      this.router.events.subscribe(event => {
-        if (event instanceof NavigationEnd) {
-          this.isOnMainPage = (event.url === '/' || event.url === '/principal');
-        }
-      });
-    }
+    constructor(private router: Router, private serviceUser: PostServiceUser) {}
 
     ngOnInit(): void {
         this.serviceUser.getIsAuthenticated()
-          .subscribe(isAuthenticated => {
-            this.isUserAuthenticated = isAuthenticated;
-          });
-          this.serviceUser.isAdminLoggedIn()
-          .subscribe(isAdmin => {
-            this.isAdmin = isAdmin;
-          });
-      }    
+            .subscribe(isAuthenticated => {
+                this.isUserAuthenticated = isAuthenticated;
+            });
+
+        this.router.events.pipe(
+            filter(event => event instanceof NavigationEnd)
+        ).subscribe(event => {
+            if (event instanceof NavigationEnd) {
+                this.isOnMainPage = event.url === '/principal' || event.url === '/register' || event.url === '/cambio';
+            }
+        });
+    }
 
     onLogout() {
-        this.serviceUser.logout(); 
-        this.router.navigate(['/']); 
+        this.router.navigate(['/principal']);
     }
-    
 }

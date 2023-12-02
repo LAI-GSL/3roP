@@ -45,7 +45,6 @@ export class LoginComponent{
             this.router.navigate(['/UsuarioCita']);
           }
         } else {
-          // Manejar la cuenta no verificada
           this.message = 'Por favor verifica tu cuenta antes de iniciar sesión.';
           this.clearFields();
         }
@@ -57,6 +56,10 @@ export class LoginComponent{
       }
     );
   }
+
+  reistrar() {
+    this.router.navigate(['/register']);
+}
 
 }
 

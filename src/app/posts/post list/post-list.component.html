@@ -4,7 +4,7 @@
 </div>
 <div class="print-content">
 <mat-accordion multi="true" *ngIf="posts.length > 0">
-  <mat-expansion-panel *ngFor="let post of posts">
+  <mat-expansion-panel *ngFor="let post of posts |  filterByUser: (usuarioActual?.id || '')">
     <mat-expansion-panel-header>
       {{post.date | date}}
   </mat-expansion-panel-header>

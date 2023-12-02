@@ -62,6 +62,7 @@
         <div *ngIf="passwordMismatch">
           <p style="color: red">Las contraseñas no coinciden.</p>
       </div>
+      <button mat-button  (click)="onLogout()">Regresar</button>
       <div *ngIf="showSuccessDialog">
           <p style="color: green">Verfica tu cuenta a traves del correo electronico que te hemos enviado.</p>
       </div>

@@ -130,12 +130,36 @@ appuser.get('/api/verificacion', async (req, res) => {
     }
 
     user.isVerified = true;
-    user.verificationToken = undefined; // Elimina el token ya que ya no será necesario
+    user.verificationToken = undefined; 
     await user.save();
 
     res.status(200).json({ message: "La cuenta ha sido verificada. Por favor, inicie sesión." });
   } catch (err) {
     res.status(500).json({ message: "No se pudo verificar la cuenta.", error: err });
   }
+});
+
+appuser.post('/api/recuperar', (req, res) => {
+  User.findOne({ email: req.body.email }).then(user => {
+      if (!user) {
+          return res.status(404).json({ message: 'Correo electrónico no encontrado.' });
+      }
+
+      const mailOptions = {
+          from: 'laisha.soto14@hotmail.com',
+          to: user.email,
+          subject: 'Recuperación de Contraseña',
+          text: `Tu contraseña es: ${user.password}`
+      };
+
+      transporter.sendMail(mailOptions, (error, info) => {
+          if (error) {
+              return res.status(500).json({ message: 'Error al enviar el correo electrónico.', error: error });
+          }
+          res.status(200).json({ message: 'Correo electrónico enviado con éxito.' });
+      });
+  }).catch(err => {
+      res.status(500).json({ message: 'Error al buscar el usuario.', error: err });
+  });
 });
 module.exports = appuser;

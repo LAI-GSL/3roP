@@ -7,9 +7,11 @@ import { MatTabComponent } from './posts/mat-tab/mat-tab.component';
 import { AdminUsersComponent } from './posts/Usuarios/usuarios.component';
 import { UserCreateComponent } from './posts/user-create/usercreate.component';
 import { verificacionComponent } from './posts/verificacion/veri.component';
+import { PasComponent } from './posts/password/pas.component';
 AdminUsersComponent
 UserCreateComponent
 verificacionComponent
+PasComponent
 
 const routes: Routes = [
   { path: '', component: TreeComponents },
@@ -18,7 +20,8 @@ const routes: Routes = [
   { path: 'ruta-admin', component: UserCreateComponent},
   { path: 'principal', component: TreeComponents },
   { path: 'UsuarioCita', component: MatTabComponent },
-  { path: 'verificacion', component: verificacionComponent}
+  { path: 'verificacion', component: verificacionComponent},
+  { path: 'cambio', component: PasComponent}
 
 ];
 

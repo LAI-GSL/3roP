@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output} from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { PostServiceUser } from "../users.service";
+import { Router, NavigationEnd, Event as NavigationEvent } from '@angular/router';
 @Component({
   selector: 'app-registro',
   templateUrl: './post-registro.component.html',
@@ -12,7 +13,7 @@ export class RegisterComponent {
   showSuccessDialog = false;
 
   form: NgForm = new NgForm([], []); 
-  constructor(public postsServiceUser: PostServiceUser) {
+  constructor(public postsServiceUser: PostServiceUser, private router: Router) {
   }
 
   onAddUser(form: NgForm){
@@ -39,4 +40,7 @@ export class RegisterComponent {
     this.wantToLogin.emit();
   }
 
+  onLogout() {
+    this.router.navigate(['/principal']);
+}
 }

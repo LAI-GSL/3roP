@@ -8,6 +8,9 @@ import { ProfeService } from "../profe.service";
 import { Profe } from "../profe.model";
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subscription } from "rxjs";
+import { PostServiceUser } from "../users.service";
+import { User } from "../user.model";
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 @Component({
     selector: 'app-post-create',
@@ -20,7 +23,10 @@ export class PostCreateComponent{
   profes: Profe[] = [];
   consentConfirmed = false; 
   selectedProfe: string = '';
+  selectedUser: string = "";
   private profesSub!: Subscription;
+  users: User[] = [];
+  private usersSub!: Subscription;
 
   profeSeleccionado: Profe | null = null;  
 
@@ -30,7 +36,7 @@ export class PostCreateComponent{
   }
 
 
-  constructor(public postsService: PostService, public dialog: MatDialog, private profeService: ProfeService, private fb: FormBuilder){}
+  constructor(public postsService: PostService, public dialog: MatDialog, private profeService: ProfeService, private fb: FormBuilder, private postServiceUser: PostServiceUser){}
   ngOnInit() {
     this.profeService.getProfe();
     this.profesSub =  this.profeService.getProfeUpdateListener()
@@ -47,7 +53,7 @@ export class PostCreateComponent{
     if (form.invalid) {
       return;
     }
-    console.log(this.selectedProfe)
+
     this.postsService.addPost(form.value.name, form.value.date, form.value.time, form.value.phoneNumber, form.value.email, form.value.notes, form.value.consentConfirmation, this.selectedProfe);
     form.resetForm();
     this.consentConfirmed = false; 
@@ -64,13 +70,15 @@ setTimeout(() => {
   const dialogRef = this.dialog.open(DialogComponent,{
 });
 
-dialogRef.afterClosed().subscribe(result => {
-  console.log('Close');
-})
-
 MatDialogRef.close();
   },500)
 
 }
+
+myFilter = (d: Date | null): boolean => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); 
+  return d ? d >= today : false;
+};
 
 }

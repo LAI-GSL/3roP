@@ -26,6 +26,7 @@ export class PostService{
                     notes: post.notes,
                     consentConfirmation: post.consentConfirmation,
                     profesion: post.profesion
+                    
 
                 };
             });
@@ -58,11 +59,12 @@ export class PostService{
         
     }
     //AGREGUÉ ESTO
-      deletePost(postId: string){
+    deletePost(postId: string){
         this.http.delete("http://localhost:3000/api/post/" + postId)
         .subscribe(()=>{
             console.log('Eliminado')
+            this.getPosts();
         });
       }
-}
 
+}

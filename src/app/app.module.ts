@@ -40,6 +40,10 @@ import { PostProfeComponent } from './posts/post-profe/post-profe.component';
 import { ProfeListComponent } from './posts/profe-list/profe-list.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
+import { FilterByUserPipe } from './posts/post list/FilterByUserPipe.pipe';
+import { PasComponent } from './posts/password/pas.component'
+
+
 
 @NgModule({
   declarations: [
@@ -56,7 +60,9 @@ import {MatSelectModule} from '@angular/material/select';
     UserCreateComponent,
     TreeComponents,
     PostProfeComponent,
-    ProfeListComponent
+    ProfeListComponent,
+    FilterByUserPipe,
+    PasComponent
   ],
   imports: [
     BrowserModule,

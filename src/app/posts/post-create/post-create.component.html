@@ -19,14 +19,16 @@
       <div class="form-group">
         <mat-form-field>
           <input matInput [matDatepicker]="picker"
-          type="text"
-          id="date"
-          name="date" 
-          ngModel
-          required
-          placeholder="Fecha"
-          #title ="ngModel">
-          <mat-error *ngIf="title.invalid">Por favor ingrese una fecha </mat-error>
+                 type="text"
+                 id="date"
+                 name="date" 
+                 ngModel
+                 required
+                 placeholder="Fecha"
+                 readonly
+                 [matDatepickerFilter]="myFilter"
+                 #dateField="ngModel">
+          <mat-error *ngIf="dateField.invalid">Por favor ingrese una fecha</mat-error>
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
@@ -108,8 +110,8 @@
       </div>
       <div class="button-group">
         <div class="form-group">
-          <button mat-button (click)="openDialog()" class="politicasbtn">Políticas</button>
-        <mat-checkbox class="example-margin" name="consentConfirmation" [(ngModel)]="consentConfirmed">Confirmación de consentimiento</mat-checkbox>
+          <button mat-button (click)="openDialog()" type="button" class="politicasbtn">Políticas</button>
+        <mat-checkbox class="example-margin" name="consentConfirmation" [(ngModel)]="consentConfirmed">Leido</mat-checkbox>
         </div>
         <button 
         mat-raised-button 

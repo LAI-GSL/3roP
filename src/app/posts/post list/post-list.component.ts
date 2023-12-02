@@ -4,6 +4,9 @@ import { PostService } from "../posts.service";
 import { Subscription } from "rxjs";
 import { ProfeService } from "../profe.service";
 import { Profe } from "../profe.model";
+import { User } from '../user.model';
+import { PostServiceUser } from "../users.service";
+
 
 @Component({
   selector: 'app-post-list',
@@ -15,7 +18,10 @@ export class PostListComponent implements OnInit, OnDestroy  {
     private postsSub!: Subscription;
     private profesSub!: Subscription;
     profes: Profe[] = [];
+    usuarioActual!: User;
     
+    filterByUser = (post: Post) => !this.usuarioActual || post.id === this.usuarioActual.id;
+
     constructor(public postsService: PostService, private profeService: ProfeService){}
 
     ngOnInit() {
