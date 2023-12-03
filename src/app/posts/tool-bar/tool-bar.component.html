@@ -1,6 +1,15 @@
 <mat-toolbar class="header">
     <div class="logo-container">
-    
+<img src="./assets/img/log.png" alt="logo">
     </div>
-    <button mat-button *ngIf="!isOnMainPage" (click)="onLogout()">Salir</button>
+
+    <div class="social-icons">
+        <button mat-flat-button color="primary" *ngIf="!isOnMainPage" (click)="onLogout()">Salir</button>
+        <a href="https://www.facebook.com/tuUsuario" target="_blank">
+            <i class="fab fa-facebook-square fa-2x" *ngIf="!isIcon"></i>
+        </a>
+        <a href="https://www.instagram.com/tuUsuario" target="_blank">
+            <i class="fab fa-instagram-square fa-2x" *ngIf="!isIcon"></i>
+        </a>
+    </div>
 </mat-toolbar>

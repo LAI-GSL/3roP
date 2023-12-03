@@ -42,7 +42,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { FilterByUserPipe } from './posts/post list/FilterByUserPipe.pipe';
 import { PasComponent } from './posts/password/pas.component'
-
+import { VerificacionComponent } from './posts/verificacion/veri.component';
 
 
 @NgModule({
@@ -62,7 +62,8 @@ import { PasComponent } from './posts/password/pas.component'
     PostProfeComponent,
     ProfeListComponent,
     FilterByUserPipe,
-    PasComponent
+    PasComponent,
+    VerificacionComponent
   ],
   imports: [
     BrowserModule,

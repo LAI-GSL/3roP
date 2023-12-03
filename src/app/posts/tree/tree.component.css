@@ -167,7 +167,7 @@
     }
   
     .hero-section {
-      min-height: 60vh;
+      min-height: 70vh;
     }
   
     .service-item {
@@ -178,7 +178,7 @@
     app-login {
       left: 50%;
       transform: translateX(-50%);
-      top: 5%;
+      top: 1%;
     width: 90%;
     }
 

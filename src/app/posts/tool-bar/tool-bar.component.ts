@@ -15,6 +15,7 @@ export class ToolbarComponent implements OnInit {
     isOnMainPage: boolean = true;
     isAdmin: boolean = false;
     isLoggedIn: boolean = false;
+    isIcon: boolean =true;
 
     constructor(private router: Router, private serviceUser: PostServiceUser) {}
 
@@ -28,7 +29,15 @@ export class ToolbarComponent implements OnInit {
             filter(event => event instanceof NavigationEnd)
         ).subscribe(event => {
             if (event instanceof NavigationEnd) {
-                this.isOnMainPage = event.url === '/principal' || event.url === '/register' || event.url === '/cambio';
+                this.isOnMainPage = event.url === '/principal' || event.url === '/register' || event.url === '/cambio' || event.url === '/';
+            }
+        });
+
+        this.router.events.pipe(
+            filter(event => event instanceof NavigationEnd)
+        ).subscribe(event => {
+            if (event instanceof NavigationEnd) {
+                this.isIcon = event.url === '/UsuarioCita' || event.url === '/ruta-admin';
             }
         });
     }

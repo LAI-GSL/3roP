@@ -1,9 +1,11 @@
-<div class="register-container">
-    <h2>Registro de usuarios</h2>
-<mat-card class="matcard">
+<div class="titulo-administrador"> <P>HOLA USUARIO ADMINISTRADOR</P></div>
+
+<div class="container">
+<mat-card class="custom-card">
+  <mat-card-title class = "title">Registro de usuarios</mat-card-title>
   <form (submit)="onAddUser(userForm)" #userForm = "ngForm" class="custom-form" >
-    <mat-form-field>
-    <div class="register-input-group">
+     <div class="form-group">
+      <mat-form-field>
       <label for="nameInput">Nombre</label>
       <input 
       matInput 
@@ -13,10 +15,10 @@
       ngModel
       required
       #title ="ngModel" class="register-form-field">
-    </div>
   </mat-form-field>
+</div>
+<div class="form-group">
   <mat-form-field>
-    <div class="register-input-group">
       <label for="emailInput">Correo Electrónico</label>
       <input 
       matInput 
@@ -26,10 +28,11 @@
       ngModel
       required
       #title ="ngModel" class="register-form-field">
-    </div>
+    
   </mat-form-field>
+</div>
+<div class="form-group">
   <mat-form-field>
-    <div class="register-input-group">
       <label for="passwordInput">Contraseña</label>
       <input 
       matInput 
@@ -39,10 +42,10 @@
       ngModel
       required
       #title ="ngModel" class="register-form-field">
-    </div>
   </mat-form-field>
+</div>
+<div class="form-group">
   <mat-form-field>
-    <div class="register-input-group">
       <label for="confirmPasswordInput">Confirmar Contraseña</label>
       <input 
       matInput 
@@ -52,8 +55,8 @@
       ngModel
       required
       #title ="ngModel" class="register-form-field">
-    </div>
   </mat-form-field>
+</div>
     <button 
         mat-raised-button 
         color="primary" 
@@ -68,7 +71,7 @@
       
   </form>
   </mat-card>
+  </div>
   <app-admin></app-admin>
   <app-post-profe></app-post-profe>
   <app-profe-list></app-profe-list>
-  </div>

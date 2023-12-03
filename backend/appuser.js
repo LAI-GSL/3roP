@@ -53,9 +53,9 @@ appuser.post ("/api/user", (req, res, next)=>{
       const mailOptions = {
         from: 'laisha.soto14@hotmail.com',
         to: user.email,
-        subject: 'Verificación de cuenta',
+        subject: 'Verifica tu cuenta de SmartBooking',
         text: 'Por favor, haz clic en el enlace para verificar tu cuenta.',
-        html: `<p>Por favor, haz clic en el siguiente enlace para verificar tu cuenta: <a href="${verificationLink}">Verificar Cuenta</a>.</p>`
+        html: ` <h>Un mundo alucinante de citas te espera</h><p>Te saluda la CEO de SmartBooking, por cuestiones de seguridad, por favor, haz clic en el siguiente enlace para verificar tu cuenta: <a href="${verificationLink}">Verificar Cuenta</a>.</p>`
       };
       
       transporter.sendMail(mailOptions, (error, info) => {

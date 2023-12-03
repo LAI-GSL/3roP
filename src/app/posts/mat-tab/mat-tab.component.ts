@@ -19,7 +19,7 @@ export class MatTabComponent {
   ];
 
   trackFoodBy(item: any) {
-    return item.value; // o cualquier otra propiedad única de tus objetos 'food'
+    return item.value; 
   }
 
 }

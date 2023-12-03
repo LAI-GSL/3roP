@@ -10,7 +10,8 @@ export class PostService{
 
     private posts: Post[] = []; //Primer matriz
     private postsUpdate = new Subject<Post[]>();
-
+    private userId = "";
+    private isAuthenticated = false;
     constructor(private http: HttpClient){}
     getPosts(){
         this.http.get<{message: string, posts:any}>('http://localhost:3000/api/post')
@@ -66,5 +67,7 @@ export class PostService{
             this.getPosts();
         });
       }
+
+      
 
 }

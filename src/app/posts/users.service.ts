@@ -102,6 +102,10 @@ export class PostServiceUser{
       getIsAuthenticated() {
         return this.isAuthenticated.asObservable();
       }
+
+      verificarUsuario(token: string) {
+        return this.http.get<{ message: string }>(`http://localhost:2000/api/verificacion?token=${token}`);
+    }
       
 }
 

@@ -7,7 +7,9 @@
     box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease;
     max-width: 400px;
-    left: 50%;
+    margin-left: auto; 
+    margin-right: auto;
+    margin-top: 10%;
   }
   
   h2 {
@@ -15,6 +17,24 @@
     color: #333;
     font-weight: 600;
   }
+
+  p .clickable-link {
+    text-decoration: none; 
+    color:#333; 
+    font-weight: bold;
+    transition: color 0.3s ease-in-out; 
+  }
+  
+  p .clickable-link:hover, p .clickable-link:focus {
+    color:#555; 
+    text-decoration: underline; 
+  }
+  
+  p .clickable-link:active {
+    color: #004085; 
+    text-decoration: none; 
+  }
+  
   
   .input-group {
     display: flex;

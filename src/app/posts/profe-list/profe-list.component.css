@@ -1,0 +1,32 @@
+mat-accordion {
+    margin: 20px; 
+  }
+  
+  mat-expansion-panel {
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    margin-bottom: 10px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+  }
+  
+  mat-expansion-panel-header {
+    background-color: #f5f5f5; 
+    color: #333;
+    font-weight: bold; 
+    padding: 10px; 
+  }
+
+  mat-expansion-panel mat-action-row {
+    border-top: 1px solid #ccc; 
+    padding-top: 10px; 
+    justify-content: flex-end; 
+  }
+
+  button[mat-button] {
+    margin-right: 8px; 
+  }
+  
+  button[mat-button][color="warn"] {
+    color: #fff;
+    background-color: #f44336;
+  }

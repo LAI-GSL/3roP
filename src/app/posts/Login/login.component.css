@@ -57,6 +57,28 @@ p {
   cursor: pointer;
 }
 
+p .clickable-link {
+  text-decoration: none; 
+  color:#333; 
+  font-weight: bold;
+  transition: color 0.3s; 
+}
+
+p .clickable-link:hover {
+  color:#555 ; 
+  text-decoration: underline; 
+}
+
+p .clickable-link:active {
+  color: #004085; 
+}
+
+p .clickable-link:focus {
+  outline: none; 
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+
 @media screen and (max-width: 768px) {
   .container {
     padding: 30px 40px; 
@@ -76,7 +98,7 @@ p {
 
 @media screen and (max-width: 480px) {
   .container {
-    padding: 20px 30px; 
+    padding: 10px 30px; 
     max-width: 300px; 
   }
 

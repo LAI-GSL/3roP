@@ -1,6 +1,5 @@
 <div class="contenedor">
-  <img src="https://freesvg.org/img/desenhocs.png" alt="">
-  <p class="texto">"Aquí puedes ver tus citas agendadas!"</p>
+  <p  class="texto-encabezado">Aquí puedes ver tus citas agendadas</p>
 </div>
 <div class="print-content">
 <mat-accordion multi="true" *ngIf="posts.length > 0">
@@ -14,12 +13,36 @@
   <p>Correo electrónico: {{post.email}}</p>
   <p>Notas: {{post.notes}}</p>
   <p>Confirmación de consentimiento: {{post.consentConfirmation ? 'Sí' : 'No'}}</p>
-  <p>Profesion: {{ getProfesionName(post.profesion) }}</p>
+  <p>Profesional: {{ getProfesionName(post.profesion) }}</p>
     <mat-action-row>
       <button mat-button color="warn" (click)="onDelete(post.id)">Eliminar</button>
-      <button mat-raised-button color="primary" (click)="printCitas()">Imprimir Citas</button>
+      <button mat-button color="primary" (click)="printCitas()">Imprimir Cita</button>
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion> 
 </div>
 <p  class="info-text mat-body-1" *ngIf="posts.length <= 0">No se han agendado citas</p>
+
+<div class="contenedor-texto-imagenes">
+  <div class="texto-pasos">
+    <p>Despues de agendar tu cita, sigue los siguiente pasos:</p>
+  </div>
+<div class="contenedor-imagenes">
+  <div class="imagen">
+    <img src="./assets/img/uno.jpg" alt="Paso 1">
+    <div class="descripcion">Una vez generada tu cita, ubica cerca de la informacion de tu cita el apartado de imprimir.</div>
+  </div>
+
+  <div class="imagen">
+    <img src="./assets/img/dos.jpg" alt="Paso 2">
+    <div class="descripcion">Imprime tu hoja y firmala, ese sera tu comprobante al momento de acurdir con el especialista para que puedas recibir los beneficios de haber generado tu cita con el equipo de SmarBooking.</div>
+  </div>
+
+  <div class="imagen">
+    <img src="./assets/img/tres.jpg" alt="Paso 3">
+    <div class="descripcion">Entrega tu comprobante al especialista y recibe el beneficio ademas de resolver tu necesidad.</div>
+  </div>
+
+  </div>
+
+</div>
