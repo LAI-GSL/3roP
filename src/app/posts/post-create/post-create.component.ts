@@ -27,6 +27,7 @@ export class PostCreateComponent{
   private profesSub!: Subscription;
   users: User[] = [];
   private usersSub!: Subscription;
+  idUser: string ="";
 
   profeSeleccionado: Profe | null = null;  
 

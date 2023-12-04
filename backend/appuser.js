@@ -113,7 +113,7 @@ appuser.delete("/api/user/:id", (req, res, next)=>{
 appuser.post('/api/login', (req, res) => {
   User.findOne({ email: req.body.email, password: req.body.password }).then(user => {
       if(user){
-          res.status(200).json({ user: user, isAdmin: user.role === 'admin' });
+          res.status(200).json({ user: user, isAdmin: user.role === 'admin' });       
       } else {
           res.status(401).json({ message: 'Credenciales incorrectas.' });
       }
