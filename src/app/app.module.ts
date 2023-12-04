@@ -22,7 +22,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { PostService } from './posts/posts.service';
 import { FormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
-import { TableComponent } from './posts/table/table.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatTreeModule} from '@angular/material/tree'; 
 import { TreeComponents } from './posts/tree/tree.component';
@@ -42,7 +41,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { FilterByUserPipe } from './posts/post list/FilterByUserPipe.pipe';
 import { PasComponent } from './posts/password/pas.component'
-import { VerificacionComponent } from './posts/verificacion/veri.component';
 
 
 @NgModule({
@@ -52,7 +50,6 @@ import { VerificacionComponent } from './posts/verificacion/veri.component';
     PostCreateComponent,
     FooterComponent,
     PostListComponent,
-    TableComponent,
     LoginComponent,
     RegisterComponent,
     MatTabComponent,
@@ -62,8 +59,7 @@ import { VerificacionComponent } from './posts/verificacion/veri.component';
     PostProfeComponent,
     ProfeListComponent,
     FilterByUserPipe,
-    PasComponent,
-    VerificacionComponent
+    PasComponent
   ],
   imports: [
     BrowserModule,
